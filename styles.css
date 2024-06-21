@@ -39,8 +39,18 @@ nav {
 .glass {
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(1px);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(1.8px);
+}
+.glass p {
+  margin-left: 1rem;
+  margin-top: 3rem;
+  font-size: 3rem;
+  font-weight: 400;
+}
+#community {
+  text-align: end;
+  margin-right: 1.5rem;
 }
 @media screen and (min-width: 600px) {
   .item {
@@ -49,13 +59,13 @@ nav {
     justify-content: center;
     align-items: center;
     background: #353535;
-    font-size: 3rem;
+
     color: #fff;
     box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
       rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
     width: 100%;
     border-radius: 5px;
-    transition: all 500ms;
+    transition: all 280ms;
     overflow: hidden;
     background-size: cover;
     background-position: center;
@@ -107,3 +117,4 @@ button:active {
   transform: translateY(2px) translateX(1px);
   box-shadow: 0 0 0 0 black;
 }
+/*  */
