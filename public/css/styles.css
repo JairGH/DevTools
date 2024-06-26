@@ -100,7 +100,7 @@ nav {
   grid-column: span 2 / 5;
 }
 /*  */
-button {
+#nav-btn {
   text-decoration: none;
   background-color: white;
   color: black;
@@ -114,13 +114,28 @@ button {
   box-shadow: 0 0 0 0 black;
 }
 
-button:hover {
+#nav-btn:hover {
   transform: translateY(-4px) translateX(-2px);
   box-shadow: 2px 5px 0 0 black;
 }
 
-button:active {
+#nav-btn:active {
   transform: translateY(2px) translateX(1px);
   box-shadow: 0 0 0 0 black;
 }
 /*  */
+#information {
+  height: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.card {
+  width: 900px;
+  height: 260px;
+}
+.bullet-pints {
+  display: flex;
+  flex-direction: row;
+}
