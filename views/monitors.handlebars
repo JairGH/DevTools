@@ -1,18 +1,16 @@
 <div id="information">
     {{#each monitors as |monitor|}}
     <div class="card">
-        <div class="photo-container">
-            <img src="{{monitor.photo}}" alt="">
-        </div>
+        <img src="{{monitor.photo}}" alt="">
         <div class="info">
             <h2>{{monitor.product_name}}</h2>
-            <p>{{monitor.description}}</p>
+            <p id="description">{{monitor.description}}</p>
             <div class="bullet-points">
                 <p>Rating: {{monitor.rating}}</p>
                 <p>Size: {{monitor.size}}</p>
                 <p>Resolution: {{monitor.resolution}}</p>
-                <p>Price: {{monitor.price}}</p>
-                <button>Shop</button>
+                <p>Price:<span> $</span>{{monitor.price}}</p>
+                <button id="shop-btn">Shop</button>
             </div>
         </div>
     </div>

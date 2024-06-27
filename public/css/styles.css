@@ -1,7 +1,4 @@
 /* Main CSS */
-html {
-  height: 100%;
-}
 
 body {
   font-family: "Comfortaa", sans-serif;
@@ -15,6 +12,13 @@ body {
 
 nav {
   padding: 20px 50px;
+}
+a {
+  text-decoration: none;
+}
+span {
+  color: #02972f;
+  font-weight: 600;
 }
 
 .navContainer {
@@ -32,6 +36,7 @@ nav {
 
 #title {
   font-size: 30px;
+  color: #4682b4;
 }
 
 .container {
@@ -47,6 +52,7 @@ nav {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(1.8px);
+  cursor: pointer;
 }
 
 .glass p {
@@ -139,8 +145,8 @@ nav {
 }
 
 #nav-btn {
-  text-decoration: none;
   background-color: white;
+  margin: 0;
   color: black;
   border-radius: 10em;
   font-size: 17px;
@@ -184,30 +190,71 @@ nav {
   margin-bottom: 2.5rem;
 }
 
-.photo-container img {
+.card img {
   width: 100%;
-  max-width: 260px;
+  max-width: 270px;
   height: auto;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
 }
-
 .info {
   padding-left: 8px;
   flex-grow: 1;
+  font-size: 16;
+  font-weight: 200;
+}
+.info h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.info p {
+  font-size: 17px;
 }
 
 .bullet-points {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 5px;
+  margin-top: 10%;
+  justify-content: space-evenly;
 }
 
 .bullet-points p {
   padding-right: 10px;
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+#shop-btn {
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid #3b3b3b;
+  border-radius: 0.9375em;
+  box-sizing: border-box;
+  color: #3b3b3b;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  min-height: 1em;
+  min-width: 0;
+  outline: none;
+  padding: 1em 1em;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
 }
 
-button {
-  margin-top: 1rem;
+#shop-btn:disabled {
+  pointer-events: none;
+}
+
+#shop-btn:hover {
+  color: #fff;
+  background-color: #02972f;
+  border: 0.125em solid #02972f;
 }
 
 /* Media Queries for Responsiveness */

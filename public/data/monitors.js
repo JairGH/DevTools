@@ -1,49 +1,61 @@
 const monitorsData = {
   monitors: [
     {
+      id: 1,
       photo:
-        "https://pbs.twimg.com/media/FLpS4knXoAwSEvk?format=jpg&name=4096x4096",
+        "https://i.ytimg.com/vi/_oYGheLvr0k/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDkNDQWnO3w1gOuO3q8H4upLw-8Ug",
       product_name: "Dell U3223QE",
       rating: 8.4,
       size: '32"',
       resolution: "3840 x 2160",
-      price: "$630",
+      price: 630,
       description:
         "The Dell U3223QE is ideal for programming with a 32-inch 4k screen, offering sharp text clarity and ample space for multiple windows. Its high pixel density makes reading code easier.",
     },
     {
+      id: 2,
+      photo: "https://cackle.co.nz/wp-content/uploads/2021/01/U4021QW-5.jpg",
       product_name: "Dell U4025QW",
       rating: 8,
       size: '40"',
       resolution: "5120 x 2160",
-      price: "$1800",
+      price: 1800,
       description:
         "The Dell U4025QW is perfect for multitasking with a 40-inch ultrawide screen and 21:9 aspect ratio, providing excellent text clarity and extra horizontal space. It allows you to view multiple windows side by side, enhancing productivity.",
     },
     {
+      id: 3,
+      photo:
+        "https://www.pcworld.com/wp-content/uploads/2023/04/pc-world-dell-s2722qc-2.jpg?quality=50&strip=all",
       product_name: "Dell S2722QC",
       rating: 8.6,
       size: '27"',
       resolution: "3840 x 2160",
-      price: "$300",
+      price: 300,
       description:
         "The Dell S2722QC offers good value with a 27-inch 4k screen and USB-C port. It has fewer features compared to higher-end models but includes 65W power delivery and supports Picture-by-Picture and Picture-in-Picture modes.",
     },
     {
+      id: 4,
+      photo:
+        "https://m.media-amazon.com/images/I/71aicd00vvL._AC_UF894,1000_QL80_.jpg",
       product_name: "Dell S2721QS",
       rating: 8.5,
       size: '27"',
       resolution: "3840 x 2160",
-      price: "$250",
+      price: 250,
       description:
         "The Dell S2721QS is a budget-friendly option with a 27-inch 4k screen, offering sharp text clarity. It lacks USB ports but provides excellent display quality. The ASUS ProArt PA278CV is an alternative with USB ports but lower resolution.",
     },
     {
+      id: 5,
+      photo:
+        "https://i.rtings.com/assets/products/xVj9N06Y/asus-vg246h/design-medium.jpg?format=auto",
       product_name: "ASUS VG246H",
       rating: 7.6,
       size: '24"',
       resolution: "1920 x 1080",
-      price: "$140",
+      price: 140,
       description:
         "The ASUS VG246H is a compact, entry-level monitor with a 24-inch 1080p screen, suitable for limited desk space or dual setups. It offers decent text clarity for coding despite its lower resolution.",
     },
