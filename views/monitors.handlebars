@@ -1,11 +1,13 @@
-<section id="information">
+<div id="information">
     {{#each monitors as |monitor|}}
     <div class="card">
-        <div class="img"></div>
+        <div class="photo-container">
+            <img src="{{monitor.photo}}" alt="">
+        </div>
         <div class="info">
             <h2>{{monitor.product_name}}</h2>
             <p>{{monitor.description}}</p>
-            <div class="bullet-pints">
+            <div class="bullet-points">
                 <p>Rating: {{monitor.rating}}</p>
                 <p>Size: {{monitor.size}}</p>
                 <p>Resolution: {{monitor.resolution}}</p>
@@ -15,4 +17,4 @@
         </div>
     </div>
     {{/each}}
-</section>
+</div>

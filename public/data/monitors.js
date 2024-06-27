@@ -1,9 +1,11 @@
 const monitorsData = {
   monitors: [
     {
+      photo:
+        "https://pbs.twimg.com/media/FLpS4knXoAwSEvk?format=jpg&name=4096x4096",
       product_name: "Dell U3223QE",
       rating: 8.4,
-      size: "32 inch",
+      size: '32"',
       resolution: "3840 x 2160",
       price: "$630",
       description:
@@ -12,7 +14,7 @@ const monitorsData = {
     {
       product_name: "Dell U4025QW",
       rating: 8,
-      size: "40 inch",
+      size: '40"',
       resolution: "5120 x 2160",
       price: "$1800",
       description:
@@ -21,7 +23,7 @@ const monitorsData = {
     {
       product_name: "Dell S2722QC",
       rating: 8.6,
-      size: "27 inch",
+      size: '27"',
       resolution: "3840 x 2160",
       price: "$300",
       description:
@@ -30,7 +32,7 @@ const monitorsData = {
     {
       product_name: "Dell S2721QS",
       rating: 8.5,
-      size: "27 inch",
+      size: '27"',
       resolution: "3840 x 2160",
       price: "$250",
       description:
@@ -39,7 +41,7 @@ const monitorsData = {
     {
       product_name: "ASUS VG246H",
       rating: 7.6,
-      size: "24 inch",
+      size: '24"',
       resolution: "1920 x 1080",
       price: "$140",
       description:
