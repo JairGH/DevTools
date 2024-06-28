@@ -178,8 +178,8 @@ span {
 }
 
 .card {
-  max-width: 100%;
-  height: auto;
+  max-width: 900px;
+  height: 500px;
   display: flex;
   flex-direction: row;
   padding: 1rem;
@@ -193,33 +193,31 @@ span {
 .card img {
   width: 100%;
   max-width: 270px;
-  height: auto;
   border-radius: 14px;
   object-fit: cover;
   display: block;
 }
 .info {
-  padding-left: 8px;
+  padding-left: 12px;
   flex-grow: 1;
-  font-size: 16;
-  font-weight: 200;
+  font-weight: 300;
 }
 .info h2 {
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 .info p {
   font-size: 17px;
 }
 
 .bullet-points {
+  padding-left: 10px;
   display: flex;
   margin-top: 10%;
   justify-content: space-evenly;
 }
 
 .bullet-points p {
-  padding-right: 10px;
   font-size: 18px;
   font-weight: 500;
 }
@@ -261,8 +259,8 @@ span {
 @media (min-width: 768px) {
   .card {
     flex-direction: row;
-    max-width: 900px;
-    height: 260px;
+    max-width: 1000px;
+    height: auto;
   }
 
   .bullet-points {

@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const { create } = require("express-handlebars");
 const monitorsData = require("./public/data/monitors");
-
+const keyboardsData = require("./public/data/keyboards");
 
 const hbs = create({
   defaultLayout: "main",
@@ -24,6 +24,10 @@ app.get("/", (req, res) => {
 
 app.get("/monitors", (req, res) => {
   res.render("monitors", monitorsData);
+});
+
+app.get("/keyboards", (req, res) => {
+  res.render("keyboards", keyboardsData);
 });
 
 const PORT = process.env.PORT || 3000;
