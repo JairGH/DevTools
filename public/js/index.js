@@ -1,24 +1,26 @@
-function redirectToMonitors() {
-  window.location.href = "http://localhost:3000/monitors";
-}
-document.getElementById("monitorClick").onclick = redirectToMonitors;
+const allLinks = {
+  monitorLink: "http://localhost:3000/monitors",
+  monitorDiv: "monitorClick",
+  keyboardLink: "http://localhost:3000/keyboards",
+  keyboardDiv: "keyboardClick",
+  mouseLink: "http://localhost:3000/mouse",
+  mouseDiv: "mouseClick",
+  headphonesLink: "http://localhost:3000/headphones",
+  headphonesDiv: "headphonesClick",
+  communityLink: "http://localhost:3000/community",
+  communityDiv: "communityClick",
+};
 
-function redirectToKeyboards() {
-  window.location.href = "http://localhost:3000/keyboards";
+function redirectToPage(page) {
+  window.location.href = page;
 }
-document.getElementById("keyboardClick").onclick = redirectToKeyboards;
 
-function redirectToMouse() {
-  window.location.href = "http://localhost:3000/mouse";
+function setDiv(div, page) {
+  document.getElementById(div).onclick = () => redirectToPage(page);
 }
-document.getElementById("mouseClick").onclick = redirectToMouse;
 
-function redirectToHeadphones() {
-  window.location.href = "http://localhost:3000/headphones";
-}
-document.getElementById("headphonesClick").onclick = redirectToHeadphones;
-
-function redirectToCommunity() {
-  window.location.href = "http://localhost:3000/community";
-}
-document.getElementById("communityClick").onclick = redirectToCommunity;
+setDiv(allLinks.monitorDiv, allLinks.monitorLink);
+setDiv(allLinks.keyboardDiv, allLinks.keyboardLink);
+setDiv(allLinks.mouseDiv, allLinks.mouseLink);
+setDiv(allLinks.headphonesDiv, allLinks.headphonesLink);
+setDiv(allLinks.communityDiv, allLinks.communityLink);
