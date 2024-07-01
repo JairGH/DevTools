@@ -10,7 +10,7 @@ const keyboardsData = {
       switchType: "Mechanical",
       price: 230,
       description:
-        "The Keychron Q5 Max is a wireless mechanical keyboard with outstanding build quality and aesthetics. Its double gasket-mounted design provides a soft, springy typing experience, making it stand out among prebuilt options. With a hot-swappable PCB, changing switches is straightforward, and you can also replace keycaps and stabilizers. Ideal for programmers, this keyboard balances customizability and performance.",
+        "The Keychron Q5 Max is a wireless mechanical keyboard with outstanding build quality and aesthetics. Its double gasket-mounted design provides a soft, springy typing experience, making it stand out among prebuilt options. With a hot-swappable PCB, changing switches is straightforward, and you can also replace keycaps and stabilizers. Ideal for programmers.",
     },
     {
       id: 2,
