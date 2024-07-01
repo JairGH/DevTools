@@ -1,0 +1,18 @@
+<div id="information">
+    {{#each mouse as |mouse| }}
+    <div class="card">
+        <img src="{{mouse.photo}}" alt="">
+        <div class="info">
+            <h2>{{mouse.product_name}}</h2>
+            <p id="description">{{mouse.description}}</p>
+            <div class="bullet-points">
+                <p>Rating: {{mouse.rating}}</p>
+                <p>DPI: {{mouse.dpi}}</p>
+                <p>Connectivity: {{mouse.connectivity}}</p>
+                <p>Price:<span> $</span>{{mouse.price}}</p>
+                <button id="shop-btn">Shop</button>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
