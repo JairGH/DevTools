@@ -1,3 +1,10 @@
+function shopItem(event) {
+  var button = event.target;
+  var shopItem = button.parentElement.parentElement;
+  var title = shopItem.getElementsByClassName("name")[0].innerText;
+  console.log(title, "hey");
+}
+
 const allLinks = {
   monitorLink: "http://localhost:3000/monitors",
   monitorDiv: "monitorClick",
