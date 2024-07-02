@@ -27,7 +27,7 @@ const keyboardsData = {
     {
       id: 3,
       photo:
-        "https://cdn.thewirecutter.com/wp-content/media/2024/04/mechanicalkeyboards-2048px-1360.jpg?auto=webp&quality=75&width=1024",
+        "https://cdn.shopify.com/s/files/1/0059/0630/1017/files/Keychron-V5-Max-QMK-VIA-wireless-mechanical-keyboard-5.jpg?v=1703056517",
       product_name: "Keychron V5 Max",
       rating: 7.9,
       size: "96%",
