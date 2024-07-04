@@ -10,7 +10,9 @@
                 <p>Comfort: {{headphone.comfort}}</p>
                 <p>Sound Quality: {{headphone.sound_quality}}</p>
                 <p>Price:<span> $</span>{{headphone.price}}</p>
-                <button id="shop-btn" type="button">Shop</button>
+                <a href="/shop/{{this.id}}">
+                    <button id="shop-btn" type="button">Shop</button>
+                </a>
             </div>
         </div>
     </div>

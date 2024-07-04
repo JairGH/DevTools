@@ -1,10 +1,3 @@
-function shopItem(event) {
-  var button = event.target;
-  var shopItem = button.parentElement.parentElement;
-  var title = shopItem.getElementsByClassName("name")[0].innerText;
-  console.log(title, "hey");
-}
-
 const allLinks = {
   monitorLink: "http://localhost:3000/monitors",
   monitorDiv: "monitorClick",
@@ -31,3 +24,12 @@ setDiv(allLinks.keyboardDiv, allLinks.keyboardLink);
 setDiv(allLinks.mouseDiv, allLinks.mouseLink);
 setDiv(allLinks.headphonesDiv, allLinks.headphonesLink);
 setDiv(allLinks.communityDiv, allLinks.communityLink);
+
+function getParameterByName(name, url = window.location.href) {
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}

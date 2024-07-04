@@ -1,0 +1,18 @@
+<div id="information">
+    <div class="card">
+        <img src="{{item.photo}}" alt="">
+        <div class="info">
+            <h2 class="name">{{item.product_name}}</h2>
+            <p id="description">{{item.description}}</p>
+            <div class="bullet-points">
+                <p>Rating: {{item.rating}}</p>
+                <p>Comfort: {{item.comfort}}</p>
+                <p>Sound Quality: {{item.sound_quality}}</p>
+                <p>Price:<span> $</span>{{item.price}}</p>
+                <a href="/shop/{{this.id}}">
+                    <button id="shop-btn" type="button">Shop</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

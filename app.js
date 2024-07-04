@@ -6,6 +6,7 @@ const monitorsData = require("./public/data/monitors");
 const keyboardsData = require("./public/data/keyboards");
 const mouseData = require("./public/data/mouse");
 const headphonesData = require("./public/data/headphones");
+const allProducts = require("./public/data/allProducts.json");
 
 const hbs = create({
   defaultLayout: "main",
@@ -38,6 +39,18 @@ app.get("/mouse", (req, res) => {
 
 app.get("/headphones", (req, res) => {
   res.render("headphones", headphonesData);
+});
+
+app.get("/shop/:id", (req, res) => {
+  const itemId = req.params.id;
+  const item = allProducts.find((p) => p.id == itemId);
+  console.log(item);
+  if (item) {
+    res.render("shop", { allProducts });
+    console.log(item.product_name);
+  } else {
+    res.status(404).send("Not found");
+  }
 });
 
 const PORT = process.env.PORT || 3000;
