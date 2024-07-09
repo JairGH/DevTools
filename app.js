@@ -43,7 +43,8 @@ app.get("/headphones", (req, res) => {
 
 app.get("/shop/:id", (req, res) => {
   const itemId = parseInt(req.params.id, 10);
-  const item = allProducts.item.find((p) => p.id === itemId);
+  console.log(itemId);
+  const item = allProducts.items.find((p) => p.id === itemId);
   if (item) {
     res.render("shop", { item });
     console.log(item.product_name);

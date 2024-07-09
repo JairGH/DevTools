@@ -10,7 +10,9 @@
                 <p>Size: {{monitor.size}}</p>
                 <p>Resolution: {{monitor.resolution}}</p>
                 <p>Price:<span> $</span>{{monitor.price}}</p>
-                <button id="shop-btn">Shop</button>
+                <a href="/shop/{{this.id}}">
+                    <button id="shop-btn" type="button">Shop</button>
+                </a>
             </div>
         </div>
     </div>

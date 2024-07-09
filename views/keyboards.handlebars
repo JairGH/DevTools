@@ -7,10 +7,12 @@
             <p id="description">{{keyboard.description}}</p>
             <div class="bullet-points">
                 <p>Rating: {{keyboard.rating}}</p>
-                <p>Size: {{keyboard.size}}</p>
-                <p>Switch Type: {{keyboard.switchType}}</p>
+                <p>{{keyboard.size}}</p>
+                <p>{{keyboard.switchType}}</p>
                 <p>Price:<span> $</span>{{keyboard.price}}</p>
-                <button id="shop-btn">Shop</button>
+                <a href="/shop/{{this.id}}">
+                    <button id="shop-btn" type="button">Shop</button>
+                </a>
             </div>
         </div>
     </div>
