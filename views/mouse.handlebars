@@ -7,10 +7,12 @@
             <p id="description">{{mouse.description}}</p>
             <div class="bullet-points">
                 <p>Rating: {{mouse.rating}}</p>
-                <p>DPI: {{mouse.dpi}}</p>
-                <p>Connectivity: {{mouse.connectivity}}</p>
+                <p>{{mouse.detail_1}}</p>
+                <p>{{mouse.detail_2}}</p>
                 <p>Price:<span> $</span>{{mouse.price}}</p>
-                <button id="shop-btn">Shop</button>
+                <a href="/shop/{{this.id}}">
+                    <button id="shop-btn" type="button">Shop</button>
+                </a>
             </div>
         </div>
     </div>
