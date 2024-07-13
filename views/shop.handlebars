@@ -8,13 +8,19 @@
 </head>
 
 <body>
-    <h1>{{item.product_name}}</h1>
-    <img src="{{item.photo}}" alt="{{item.product_name}}">
-    <p>Rating: {{item.rating}}</p>
-    <p>{{item.detail_1}}</p>
-    <p>{{item.detail_2}}</p>
-    <p>Price: ${{item.price}}</p>
-    <p>Description: {{item.description}}</p>
+    <section id="shop-container">
+        <div id="image-container">
+            <img src="{{item.photo}}" alt="{{item.product_name}}">
+        </div>
+        <div id="item-info">
+            <h1>{{item.product_name}}</h1>
+            <p>Rating: {{item.rating}}</p>
+            <p>{{item.detail_1}}</p>
+            <p>{{item.detail_2}}</p>
+            <p>Price: ${{item.price}}</p>
+            <p>Description: {{item.description}}</p>
+        </div>
+    </section>
 </body>
 
 </html>

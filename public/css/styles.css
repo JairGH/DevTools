@@ -1,5 +1,4 @@
 /* Main CSS */
-
 body {
   font-family: "Comfortaa", sans-serif;
   font-optical-sizing: auto;
@@ -287,4 +286,10 @@ span {
   .bullet-points {
     flex-direction: column;
   }
+}
+/* Shop Page */
+#shop-container {
+  display: flex;
+  justify-content: center;
+  margin: 5rem;
 }
