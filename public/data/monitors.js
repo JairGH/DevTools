@@ -8,7 +8,7 @@ const monitorsData = {
       rating: 8.4,
       detail_1: 'Size: 32"',
       detail_2: "Resolution: 3840 x 2160",
-      price: 6300,
+      price: 6,
       description:
         "The Dell U3223QE is ideal for programming with a 32-inch 4k screen, offering sharp text clarity and ample space for multiple windows. Its high pixel density makes reading code easier, while the IPS technology ensures wide viewing angles and accurate colors, perfect for content creation and detailed design work.",
     },
@@ -55,7 +55,7 @@ const monitorsData = {
       rating: 7.6,
       detail_1: 'Size: 24"',
       detail_2: "Resolution: 1920 x 1080",
-      price: 140,
+      price: 14000,
       description:
         "The ASUS VG246H is a compact, entry-level monitor with a 24-inch 1080p screen, suitable for limited desk space or dual setups. It offers decent text clarity for coding despite its lower resolution. Its ergonomic stand and low blue light feature make it a comfortable choice for long hours of use, providing a good balance of performance and value.",
     },

@@ -56,18 +56,30 @@ app.get("/shop/:id", (req, res) => {
     res.status(404).send("Not found");
   }
 });
+// Delete this?
+app.get("/create-checkout-session", (req, res) => {
+  res.render("checkout");
+});
 
-app.post("/create-checkout-session", async (req, res) => {
+app.get("/success", (req, res) => {
+  res.render("success");
+});
+app.get("/cancel", (req, res) => {
+  res.render("cancel");
+});
+
+app.post("/create-checkout-session/:id", async (req, res) => {
+  const itemId = parseInt(req.params.id, 10);
+  const product = allProducts.items.find((p) => p.id === itemId);
+  // console.log(product.product_name);
   const price = await stripe.prices.create({
     currency: "usd",
-    unit_amount: 1000,
-    recurring: {
-      interval: "month",
-    },
+    unit_amount: product.price,
     product_data: {
-      name: "Gold Plan",
+      name: product.product_name,
     },
   });
+  console.log(price);
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
@@ -76,9 +88,9 @@ app.post("/create-checkout-session", async (req, res) => {
         quantity: 1,
       },
     ],
-    mode: "subscription",
-    success_url: `http://localhost:3000/success.html`,
-    cancel_url: `http://localhost:3000/success.html`,
+    mode: "payment",
+    success_url: `http://localhost:3000/success`,
+    cancel_url: `http://localhost:3000/cancel`,
   });
 
   res.redirect(303, session.url);
