@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+require("dotenv").config();
 const { create } = require("express-handlebars");
 const monitorsData = require("./public/data/monitors");
 const keyboardsData = require("./public/data/keyboards");
 const mouseData = require("./public/data/mouse");
 const headphonesData = require("./public/data/headphones");
 const allProducts = require("./public/data/allProducts");
-require("dotenv").config();
 const stripe = require("stripe")(process.env.Token);
 
 const hbs = create({
@@ -76,11 +76,11 @@ app.post("/create-checkout-session/:id", async (req, res) => {
       name: product.product_name,
     },
   });
+
   console.log(price);
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
-        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
         price: price.id,
         quantity: 1,
       },

@@ -10,11 +10,8 @@
                 <p>{{monitor.detail_1}}</p>
                 <p>{{monitor.detail_2}}</p>
                 <p>Price:<span> $</span>{{monitor.price}}</p>
-                <a href="/shop/{{this.id}}">
-                    <button id="shop-btn" type="button">Shop</button>
-                </a>
                 <form action="/create-checkout-session/{{this.id}}" method="POST">
-                    <button type="submit" id="checkout-button">Checkout</button>
+                    <button type="submit" id="checkout-button" class="shop-btn">Checkout</button>
                 </form>
             </div>
         </div>

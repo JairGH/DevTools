@@ -222,7 +222,7 @@ span {
   font-weight: 500;
 }
 
-#shop-btn {
+.shop-btn {
   appearance: none;
   background-color: transparent;
   border: 0.125em solid #3b3b3b;
@@ -246,11 +246,11 @@ span {
   will-change: transform;
 }
 
-#shop-btn:disabled {
+.shop-btn:disabled {
   pointer-events: none;
 }
 
-#shop-btn:hover {
+.shop-btn:hover {
   color: #fff;
   background-color: #02972f;
   border: 0.125em solid #02972f;

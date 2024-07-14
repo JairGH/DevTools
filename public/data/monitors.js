@@ -8,7 +8,7 @@ const monitorsData = {
       rating: 8.4,
       detail_1: 'Size: 32"',
       detail_2: "Resolution: 3840 x 2160",
-      price: 6,
+      price: 800,
       description:
         "The Dell U3223QE is ideal for programming with a 32-inch 4k screen, offering sharp text clarity and ample space for multiple windows. Its high pixel density makes reading code easier, while the IPS technology ensures wide viewing angles and accurate colors, perfect for content creation and detailed design work.",
     },

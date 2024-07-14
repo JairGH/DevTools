@@ -7,7 +7,7 @@ const headphonesData = {
       rating: 8.6,
       detail_1: "Comfort: 9/10",
       detail_2: "Sound Quality: 9/10",
-      price: 35000,
+      price: 260,
       description:
         "The Sony WH-1000XM4 headphones offer a blend of superior sound quality, advanced noise-canceling technology, and thoughtful features, making them a standout choice for both audiophiles and everyday users. Their exceptional comfort, customizable sound, and smart functionalities ensure an excellent listening experience, whether for travel, work, or leisure.",
     },
