@@ -7,10 +7,8 @@ const keyboardsData = require("./public/data/keyboards");
 const mouseData = require("./public/data/mouse");
 const headphonesData = require("./public/data/headphones");
 const allProducts = require("./public/data/allProducts");
-
-const stripe = require("stripe")(
-  "sk_test_51NOA4SDltZuFbXatKHv7ROPwdUQ13yVe8fsPhwFwjWsgWU1ElqQMIoLQMrG1tQm3ZDB9306j1BZbltPjKVTsfw7s006eHCJwKs"
-);
+require("dotenv").config();
+const stripe = require("stripe")(process.env.Token);
 
 const hbs = create({
   defaultLayout: "main",
@@ -56,7 +54,7 @@ app.get("/shop/:id", (req, res) => {
     res.status(404).send("Not found");
   }
 });
-// Delete this?
+
 app.get("/create-checkout-session", (req, res) => {
   res.render("checkout");
 });
@@ -71,7 +69,6 @@ app.get("/cancel", (req, res) => {
 app.post("/create-checkout-session/:id", async (req, res) => {
   const itemId = parseInt(req.params.id, 10);
   const product = allProducts.items.find((p) => p.id === itemId);
-  // console.log(product.product_name);
   const price = await stripe.prices.create({
     currency: "usd",
     unit_amount: product.price,
