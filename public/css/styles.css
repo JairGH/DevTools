@@ -8,16 +8,49 @@ body {
   margin: 0;
   min-height: 100%;
 }
-
-nav {
-  padding: 20px 50px;
-}
 a {
   text-decoration: none;
 }
-span {
-  color: #02972f;
-  font-weight: 600;
+li {
+  list-style: none;
+}
+
+nav ul {
+  list-style: none;
+}
+nav li {
+  height: 50px;
+}
+#sideMenu {
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+nav a:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar {
+  display: none;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+}
+.sidebar li {
+  width: 100%;
 }
 
 .navContainer {
@@ -26,6 +59,11 @@ span {
   justify-content: space-between;
   cursor: pointer;
   height: 50px;
+  padding: 20px 50px;
+}
+span {
+  color: #02972f;
+  font-weight: 600;
 }
 
 .navItem {
@@ -124,11 +162,6 @@ span {
     grid-template-columns: repeat(1, minmax(240px, 1fr));
   }
 
-  .navContainer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   #title {
     font-size: 24px;
   }
@@ -165,6 +198,10 @@ span {
 #nav-btn:active {
   transform: translateY(2px) translateX(1px);
   box-shadow: 0 0 0 0 black;
+}
+
+.navItem {
+  display: flex;
 }
 
 /* Products CSS  */
@@ -256,7 +293,13 @@ span {
   border: 0.125em solid #02972f;
 }
 
-/* Media Queries for Responsiveness */
+/* Mobile */
+@media (max-width: 800px) {
+  .navItem {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
   .card {
     flex-direction: row;
@@ -266,10 +309,6 @@ span {
   .card img {
     width: 270px;
     height: 270px;
-  }
-
-  .bullet-points {
-    flex-direction: row;
   }
 }
 

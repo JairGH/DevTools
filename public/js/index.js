@@ -25,11 +25,17 @@ setDiv(allLinks.mouseDiv, allLinks.mouseLink);
 setDiv(allLinks.headphonesDiv, allLinks.headphonesLink);
 setDiv(allLinks.communityDiv, allLinks.communityLink);
 
-function getParameterByName(name, url = window.location.href) {
-  name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return "";
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
+function showSidebar() {
+  const sidebar = document.querySelector(".sidebar");
+  if (sidebar) {
+    sidebar.style.display = "flex";
+  }
 }
+function hideSidebar() {
+  const sidebar = document.querySelector(".sidebar");
+  if (sidebar) {
+    sidebar.style.display = "none";
+  }
+}
+
+window.showSidebar = showSidebar;

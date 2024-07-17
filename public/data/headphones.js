@@ -38,7 +38,7 @@ const headphonesData = {
       id: 8,
       photo:
         "https://imageio.forbes.com/specials-images/imageserve/64ac88339b11f18b95edfb01/0x0.jpg?format=jpg&crop=1600,900,x0,y0,safe&height=900&width=1600&fit=bounds",
-      product_name: "Bose QuietComfort 45 headphones",
+      product_name: "Bose QuietComfort 45",
       rating: 9,
       detail_1: "Comfort: 9/10",
       detail_2: "Sound Quality: 8/10",

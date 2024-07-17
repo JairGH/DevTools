@@ -42,19 +42,6 @@ app.get("/headphones", (req, res) => {
   res.render("headphones", headphonesData);
 });
 
-app.get("/shop/:id", (req, res) => {
-  const itemId = parseInt(req.params.id, 10);
-  const item = allProducts.items.find((p) => p.id === itemId);
-  const itemPrice = item.price;
-  console.log(itemPrice);
-  if (item) {
-    res.render("shop", { item });
-    console.log(item.product_name);
-  } else {
-    res.status(404).send("Not found");
-  }
-});
-
 app.get("/create-checkout-session", (req, res) => {
   res.render("checkout");
 });
@@ -77,7 +64,6 @@ app.post("/create-checkout-session/:id", async (req, res) => {
     },
   });
 
-  console.log(price);
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
