@@ -38,7 +38,7 @@ const monitorsData = {
     {
       id: 3,
       photo:
-        "https://m.media-amazon.com/images/I/71aicd00vvL._AC_UF894,1000_QL80_.jpg",
+        "https://i.rtings.com/assets/products/0S7VeG90/dell-s2721qs/design-medium.jpg?format=auto",
       product_name: "Dell S2721QS",
       rating: 8.5,
       detail_1: 'Size: 27"',
