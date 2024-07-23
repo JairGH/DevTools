@@ -41,6 +41,9 @@ app.get("/mouse", (req, res) => {
 app.get("/headphones", (req, res) => {
   res.render("headphones", headphonesData);
 });
+app.get("/community", (req, res) => {
+  res.render("community");
+});
 
 app.get("/create-checkout-session", (req, res) => {
   res.render("checkout");
