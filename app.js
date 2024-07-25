@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const mongoose = require("mongoose");
 require("dotenv").config();
 const { create } = require("express-handlebars");
 const monitorsData = require("./public/data/monitors");
@@ -9,6 +10,18 @@ const mouseData = require("./public/data/mouse");
 const headphonesData = require("./public/data/headphones");
 const allProducts = require("./public/data/allProducts");
 const stripe = require("stripe")(process.env.Token);
+const PORT = process.env.PORT || 3000;
+// db
+const dbUri =
+  "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+mongoose
+  .connect(dbUri)
+  .then((results) =>
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    })
+  )
+  .catch((err) => console.log(err));
 
 const hbs = create({
   defaultLayout: "main",
@@ -80,9 +93,4 @@ app.post("/create-checkout-session/:id", async (req, res) => {
   });
 
   res.redirect(303, session.url);
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
 });
