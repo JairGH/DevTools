@@ -9,13 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/static/css/styles.css">
     <title>DevTools</title>
+    <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 
 <body>
     <nav>
-        <ul class="sidebar">
-            <li onclick="hideSidebar()"><a href="/" id="sideMenu"><svg xmlns="http://www.w3.org/2000/svg" height="28px"
-                        viewBox="0 -960 960 960" width="28px" fill="#000000">
+        <ul id="sidebar">
+            <li><a href="/" id="sideMenu"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960"
+                        width="28px" fill="#000000">
                         <path
                             d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
                     </svg></a></li>
@@ -46,34 +48,16 @@
             <div class="navItem hideOnMobile">
                 <a href="https://github.com"><button class="nav-btn">GitHub</button></a>
             </div>
-            <span id="menu-btn" class="menuIcon" onclick="showSidebar()" aria-label="Open Menu">
+            <button id="sideMenuBtn" class="menuIcon" aria-label="Open Menu">
                 <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px"
                     fill="#000000">
                     <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
                 </svg>
-            </span>
+            </button>
         </div>
     </nav>
     <main id="main-content">{{{body}}}</main>
 </body>
-<script>
-
-</script>
-<script type="module" src="/static/js/index.js"></script>
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-    function showSidebar() {
-        const sidebar = document.querySelector(".sidebar");
-        if (sidebar) {
-            sidebar.style.display = "flex";
-        }
-    }
-    function hideSidebar() {
-        const sidebar = document.querySelector(".sidebar");
-        if (sidebar) {
-            sidebar.style.display = "none";
-        }
-    }
-</script>
+<script type="module" src="/static/js/index.js" defer></script>
 
 </html>

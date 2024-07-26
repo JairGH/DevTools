@@ -20,7 +20,7 @@ nav ul {
 nav li {
   height: 50px;
 }
-.sidebar {
+#sidebar {
   display: none;
   padding: 0;
   position: fixed;
@@ -36,7 +36,7 @@ nav li {
   justify-content: flex-start;
   margin: 0;
 }
-.sidebar li {
+#sidebar li {
   width: 100%;
 }
 #sideMenu {
@@ -95,7 +95,7 @@ nav li {
   .container {
     display: flex;
   }
-  #menu-btn {
+  #sideMenuBtn {
     display: none;
   }
   #nav-btn {
@@ -352,7 +352,7 @@ span {
 }
 
 @media (max-width: 430px) {
-  .sidebar {
+  #sidebar {
     width: 100%;
   }
   .hideOnMobile {
