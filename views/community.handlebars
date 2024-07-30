@@ -14,13 +14,20 @@
             Create an account or login to interact with the community!
         </p>
         <div class="actions">
-            <button class="create-account-btn" onclick="createAccountForm()">
+            <button id="create-account-btn" onclick="createAccountForm()">
                 Create Account
             </button>
-
-            <button class="login-btn" onclick="loginForm()">
+            <button id="login-btn" onclick="loginForm()">
                 Login
             </button>
         </div>
+    </div>
+    <div id="create-account">
+        <form action="" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password" required>
+        </form>
     </div>
 </div>
