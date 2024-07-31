@@ -9,7 +9,7 @@
                 <p>Rating: {{headphone.rating}}</p>
                 <p>{{headphone.detail_1}}</p>
                 <p>{{headphone.detail_2}}</p>
-                <p>Price:<span> $</span>{{headphone.price}}</p>
+                <p>Price:<span id="dollar-sign"> $</span>{{headphone.price}}</p>
                 <form action="/create-checkout-session/{{this.id}}" method="POST" id="checkout-btn">
                     <button type="submit" id="checkout-button" class="shop-btn">Checkout</button>
                 </form>

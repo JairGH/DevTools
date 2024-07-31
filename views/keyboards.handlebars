@@ -9,7 +9,7 @@
                 <p>Rating: {{keyboard.rating}}</p>
                 <p>{{keyboard.detail_1}}</p>
                 <p>{{keyboard.detail_2}}</p>
-                <p>Price:<span> $</span>{{keyboard.price}}</p>
+                <p>Price:<span id="dollar-sign"> $</span>{{keyboard.price}}</p>
                 <form action="/create-checkout-session/{{this.id}}" method="POST">
                     <button type="submit" id="checkout-button" class="shop-btn">Checkout</button>
                 </form>

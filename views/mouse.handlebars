@@ -9,7 +9,7 @@
                 <p>Rating: {{mouse.rating}}</p>
                 <p>{{mouse.detail_1}}</p>
                 <p>{{mouse.detail_2}}</p>
-                <p>Price:<span> $</span>{{mouse.price}}</p>
+                <p>Price:<span id="dollar-sign"> $</span>{{mouse.price}}</p>
                 <form action="/create-checkout-session/{{this.id}}" method="POST">
                     <button type="submit" id="checkout-button" class="shop-btn">Checkout</button>
                 </form>

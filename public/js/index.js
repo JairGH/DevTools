@@ -8,15 +8,27 @@ function showSidebar() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const sideMenuBtn = document.getElementById("sideMenuBtn");
   if (sideMenuBtn) {
     sideMenuBtn.addEventListener("click", showSidebar);
   }
 });
 // Create Account Form
-document.addEventListener("click", function () {
-  const createAccountBtn = document.getElementById;
+let accountFormBtn = document.getElementById("create-account-btn");
+let loginFormBtn = document.getElementById("login-btn");
+let createAccountForm = document.getElementById("create-account");
+let loginForm = document.getElementById("login-form");
+let communityMessage = document.getElementById("message-container");
+
+accountFormBtn.addEventListener("click", () => {
+  communityMessage.style.display = "none";
+  createAccountForm.style.display = "flex";
+});
+
+loginFormBtn.addEventListener("click", () => {
+  communityMessage.style.display = "none";
+  loginForm.style.display = "flex";
 });
 
 // Main page div
