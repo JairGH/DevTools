@@ -265,9 +265,11 @@ nav li {
 }
 /* Message */
 .message-card {
-  width: 240px;
-  height: 254px;
+  width: 320px;
+  height: 280px;
   padding: 0 15px;
+  position: relative;
+  bottom: 5rem;
   text-align: center;
   display: flex;
   align-items: center;
@@ -285,13 +287,13 @@ nav li {
 }
 
 .message_card__title {
-  font-size: 26px;
+  font-size: 2.5rem;
   font-weight: 900;
   color: #4682b4;
 }
 
 .message_card__content {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 18px;
   color: #333;
   margin-bottom: 10px;
@@ -328,7 +330,6 @@ nav li {
 
 .sign-up:hover {
   opacity: 0.8;
-  font-size: 14px;
 }
 
 /* ! */
@@ -398,6 +399,27 @@ nav li {
   .shop-btn {
     width: 150px;
     letter-spacing: 1.5px;
+  }
+  .message-card {
+    width: 240px;
+    height: 254px;
+    padding: 0 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 10px 10px #323232;
+    border: 3px solid #323232;
+  }
+  .message_card__title {
+    font-size: 26px;
+  }
+  .message_card__content {
+    font-size: 14px;
   }
 }
 @media (min-width: 2000px) {
