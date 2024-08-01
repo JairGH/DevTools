@@ -286,26 +286,29 @@ nav li {
   margin: 0;
 }
 
-.message_card__title {
+.message-card-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #4682b4;
 }
 
-.message_card__content {
+.message-card-content {
   font-size: 18px;
   line-height: 18px;
   color: #333;
   margin-bottom: 10px;
 }
 
-.message_card__form {
+#message-card-form {
   display: flex;
   flex-direction: column;
 }
+#account-card-form {
+  display: none;
+}
 
-.message_card__form input {
-  margin-top: 10px;
+#message-card-form input {
+  /* margin-top: 10px; */
   outline: 0;
   background: rgb(255, 255, 255);
   box-shadow: transparent 0px 0px 0px 1px inset;
@@ -318,7 +321,8 @@ nav li {
   color: #4682b4;
   margin: 6px;
 }
-.message_card__form button {
+#create-account-btn,
+#login-btn {
   border: 0;
   width: 180px;
   background: #111;
@@ -403,7 +407,6 @@ nav li {
   .message-card {
     width: 240px;
     height: 254px;
-    padding: 0 15px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -415,11 +418,11 @@ nav li {
     box-shadow: 10px 10px #323232;
     border: 3px solid #323232;
   }
-  .message_card__title {
+  .message-card-title {
     font-size: 26px;
   }
-  .message_card__content {
-    font-size: 14px;
+  .message-card-content {
+    font-size: 16px;
   }
 }
 @media (min-width: 2000px) {
