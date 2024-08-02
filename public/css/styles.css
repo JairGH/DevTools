@@ -266,7 +266,7 @@ nav li {
 /* Message */
 .message-card {
   width: 360px;
-  height: 310px;
+  height: auto;
   padding: 0 15px;
   position: relative;
   bottom: 5rem;
@@ -280,6 +280,7 @@ nav li {
   border-radius: 20px;
   box-shadow: 10px 10px #323232;
   border: 3px solid #323232;
+  padding: 20px;
 }
 
 .message-card > * {
@@ -291,14 +292,34 @@ nav li {
   font-weight: 900;
   color: #4682b4;
 }
-
-.message-card-content {
-  font-size: 18px;
+.message-card p {
+  display: block;
+  font-size: 16px;
   line-height: 18px;
   color: #333;
   margin-bottom: 10px;
 }
 
+#login-card-form {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#login-card-form input {
+  width: 200px;
+  margin-bottom: 8px;
+  outline: 0;
+  background: rgb(255, 255, 255);
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.6em;
+  border-radius: 14px;
+  border: 1px solid #333;
+  color: black;
+}
+#login-message {
+  display: none;
+}
 #message-card-form {
   display: flex;
   flex-direction: column;
@@ -331,7 +352,17 @@ nav li {
   font-weight: bold;
   margin-top: 8px;
 }
-
+#back-btn {
+  border: 0;
+  width: 140px;
+  background: #4682b4;
+  color: #fff;
+  padding: 0.68em;
+  border-radius: 14px;
+  font-weight: bold;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
 #or {
   color: #4682b4;
   margin: 6px;
@@ -421,7 +452,7 @@ nav li {
   }
   .message-card {
     max-width: 280px;
-    max-height: 300px;
+    height: auto;
     text-align: center;
     display: flex;
     align-items: center;
@@ -432,9 +463,13 @@ nav li {
     border-radius: 20px;
     box-shadow: 10px 10px #323232;
     border: 3px solid #323232;
+    padding: 20px;
+  }
+  .message-card span {
+    margin-top: 10px;
   }
   .message-card-title {
-    font-size: 26px;
+    font-size: 1.5rem;
   }
   .message-card-content {
     font-size: 16px;

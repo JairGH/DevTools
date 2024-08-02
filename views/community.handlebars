@@ -1,18 +1,26 @@
 <div class="community-container">
     <div class="message-card">
         <span class="message-card-title">Message !</span>
-        <p class="message-card-content">Create an account to interact with the community.
+        <p id="message-card-content">Create an account to interact with the community.
         </p>
+        <p id="login-message">Welcome back developer.</p>
         <div id="message-card-form">
             <button class="sign-up" id="create-account-btn"> Create Account</button>
             <span id="or"> -- or --</span>
             <button class="sign-up" id="login-btn"> Login</button>
         </div>
         <div id="account-card-form">
-            <input placeholder="Name" type="text">
-            <input placeholder="Your Email" type="text">
-            <input placeholder="Password" type="password">
+            <input placeholder="Name" type="text" required>
+            <input placeholder="Your Email" type="email" required>
+            <input placeholder="Password" type="password" required>
             <button id="submit-btn">Submit</button>
+            <button id="back-btn">← Back</button>
+        </div>
+        <div id="login-card-form">
+            <input placeholder="Your Email" type="email" required>
+            <input placeholder="Password" type="password" required>
+            <button id="submit-btn">Submit</button>
+            <button id="back-btn">← Back</button>
         </div>
     </div>
 </div>
