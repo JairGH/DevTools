@@ -265,8 +265,8 @@ nav li {
 }
 /* Message */
 .message-card {
-  width: 320px;
-  height: 280px;
+  width: 360px;
+  height: 310px;
   padding: 0 15px;
   position: relative;
   bottom: 5rem;
@@ -305,10 +305,14 @@ nav li {
 }
 #account-card-form {
   display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-#message-card-form input {
-  /* margin-top: 10px; */
+#account-card-form input {
+  width: 200px;
+  margin-bottom: 8px;
   outline: 0;
   background: rgb(255, 255, 255);
   box-shadow: transparent 0px 0px 0px 1px inset;
@@ -317,6 +321,17 @@ nav li {
   border: 1px solid #333;
   color: black;
 }
+#submit-btn {
+  border: 0;
+  width: 180px;
+  background: #111;
+  color: #fff;
+  padding: 0.68em;
+  border-radius: 14px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
 #or {
   color: #4682b4;
   margin: 6px;
@@ -405,8 +420,8 @@ nav li {
     letter-spacing: 1.5px;
   }
   .message-card {
-    width: 240px;
-    height: 254px;
+    max-width: 280px;
+    max-height: 300px;
     text-align: center;
     display: flex;
     align-items: center;
