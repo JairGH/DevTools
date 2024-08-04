@@ -352,7 +352,8 @@ nav li {
   font-weight: bold;
   margin-top: 8px;
 }
-#back-btn {
+#back-btn,
+#back-btn2 {
   border: 0;
   width: 140px;
   background: #4682b4;

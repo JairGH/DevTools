@@ -61,40 +61,36 @@ let goBackBtn = document.getElementById("back-btn");
 const messageForm = document.getElementById("message-card-form");
 if (createAccountBtn) {
   createAccountBtn.addEventListener("click", () => {
-    console.log("hey");
     const accountForm = document.getElementById("account-card-form");
     messageForm.style.display = "none";
     accountForm.style.display = "flex";
-    console.log("hey2");
-    goBackBtn.addEventListener("click", () => {
-      console.log("hey3");
-      accountForm.style.display = "none";
-      messageForm.style.display = "flex";
-      console.log("hey4");
-    });
+    if (goBackBtn) {
+      goBackBtn.addEventListener("click", () => {
+        accountForm.style.display = "none";
+        messageForm.style.display = "flex";
+      });
+    }
   });
 }
+
 let loginBtn = document.getElementById("login-btn");
 if (loginBtn) {
-  const goBackBtn = document.getElementById("back-btn");
   loginBtn.addEventListener("click", () => {
-    console.log("hey5");
     const loginForm = document.getElementById("login-card-form");
     const loginMessage = document.getElementById("login-message");
     const defaultMessage = document.getElementById("message-card-content");
+    let goBackBtn2 = document.getElementById("back-btn2");
     defaultMessage.style.display = "none";
     messageForm.style.display = "none";
     loginForm.style.display = "flex";
     loginMessage.style.display = "flex";
-    console.log("hey6");
-    // ! BUG!!
-    goBackBtn.addEventListener("click", () => {
-      console.log("hey7");
-      loginForm.style.display = "none";
-      loginMessage.style.display = "none";
-      defaultMessage.style.display = "flex";
-      messageForm.style.display = "flex";
-      console.log("hey8");
-    });
+    if (goBackBtn2) {
+      goBackBtn2.addEventListener("click", () => {
+        loginForm.style.display = "none";
+        loginMessage.style.display = "none";
+        defaultMessage.style.display = "flex";
+        messageForm.style.display = "flex";
+      });
+    }
   });
 }
