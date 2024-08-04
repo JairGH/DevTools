@@ -10,16 +10,25 @@
             <button class="sign-up" id="login-btn"> Login</button>
         </div>
         <div id="account-card-form">
-            <input placeholder="Name" type="text" required>
-            <input placeholder="Your Email" type="email" required>
-            <input placeholder="Password" type="password" required>
-            <button id="submit-btn">Submit</button>
+            <form action="/community" method="post">
+                <label for="username"></label>
+                <input placeholder="Name" type="text" name="username" required>
+                <label for="email"></label>
+                <input placeholder="Your Email" type="email" name="email" required>
+                <label for="password"></label>
+                <input placeholder="Password" type="password" name="password" required>
+                <button id="submit-btn">Submit</button>
+            </form>
             <button id="back-btn">← Back</button>
         </div>
         <div id="login-card-form">
-            <input placeholder="Your Email" type="email" required>
-            <input placeholder="Password" type="password" required>
-            <button id="submit-btn">Submit</button>
+            <form action="/community" method="post">
+                <label for="email"></label>
+                <input placeholder="Your Email" type="email" name="email" required>
+                <label for="password"></label>
+                <input placeholder="Password" type="password" name="password" required>
+                <button id="submit-btn2">Submit</button>
+            </form>
             <button id="back-btn2">← Back</button>
         </div>
     </div>

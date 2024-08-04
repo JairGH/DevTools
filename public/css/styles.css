@@ -324,7 +324,8 @@ nav li {
   display: flex;
   flex-direction: column;
 }
-#account-card-form {
+#account-card-form,
+form {
   display: none;
   align-items: center;
   justify-content: center;
@@ -342,7 +343,8 @@ nav li {
   border: 1px solid #333;
   color: black;
 }
-#submit-btn {
+#submit-btn,
+#submit-btn2 {
   border: 0;
   width: 180px;
   background: #111;

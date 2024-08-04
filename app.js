@@ -9,19 +9,20 @@ const keyboardsData = require("./public/data/keyboards");
 const mouseData = require("./public/data/mouse");
 const headphonesData = require("./public/data/headphones");
 const allProducts = require("./public/data/allProducts");
+const User = require("./models/user");
 const stripe = require("stripe")(process.env.Token);
 const PORT = process.env.PORT || 3000;
 // db
 const dbUri =
   "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-// mongoose
-//   .connect(dbUri)
-//   .then((results) =>
-//     app.listen(PORT, () => {
-//       console.log(`Server is running on http://localhost:${PORT}`);
-//     })
-//   )
-//   .catch((err) => console.log(err));
+mongoose
+  .connect(dbUri)
+  .then((results) =>
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    })
+  )
+  .catch((err) => console.log(err));
 
 const hbs = create({
   defaultLayout: "main",
@@ -32,6 +33,7 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "views"));
 app.use("/static", express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
@@ -95,6 +97,19 @@ app.post("/create-checkout-session/:id", async (req, res) => {
   res.redirect(303, session.url);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.post("/community", (req, res) => {
+  const user = new User(req.body);
+  user
+    .save()
+    .then((results) => {
+      res.redirect("/monitors");
+    })
+    .catch((err) => {
+      console.log(err, "oh no!");
+    });
+  console.log(req.body);
 });
+
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
