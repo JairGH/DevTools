@@ -1,4 +1,8 @@
-/* Main CSS */
+:root {
+  --blue-color: #4682b4;
+  --green-color: #02972f;
+}
+
 body {
   font-family: "Comfortaa", sans-serif;
   font-optical-sizing: auto;
@@ -67,7 +71,7 @@ nav li {
 }
 #title {
   font-size: 30px;
-  color: #4682b4;
+  color: var(--blue-color);
 }
 .nav-btn {
   background-color: white;
@@ -133,7 +137,7 @@ nav li {
   margin-right: 1.5rem;
 }
 #dollar-sign {
-  color: #02972f;
+  color: var(--green-color);
   font-weight: 800;
 }
 .item {
@@ -248,8 +252,8 @@ nav li {
 }
 .shop-btn:hover {
   color: #fff;
-  background-color: #02972f;
-  border: 0.125em solid #02972f;
+  background-color: var(--green-color);
+  border: 0.125em solid var(--green-color);
 }
 #shop-container {
   display: flex;
@@ -290,7 +294,7 @@ nav li {
 .message-card-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #4682b4;
+  color: var(--blue-color);
 }
 .message-card p {
   display: block;
@@ -324,8 +328,7 @@ nav li {
   display: flex;
   flex-direction: column;
 }
-#account-card-form,
-form {
+#account-card-form {
   display: none;
   align-items: center;
   justify-content: center;
@@ -358,7 +361,7 @@ form {
 #back-btn2 {
   border: 0;
   width: 140px;
-  background: #4682b4;
+  background: var(--blue-color);
   color: #fff;
   padding: 0.68em;
   border-radius: 14px;
@@ -367,7 +370,7 @@ form {
   margin-bottom: 8px;
 }
 #or {
-  color: #4682b4;
+  color: var(--blue-color);
   margin: 6px;
 }
 #create-account-btn,
@@ -444,10 +447,6 @@ form {
     width: 100%;
     max-width: none;
     height: 190px;
-  }
-  form {
-    display: flex;
-    justify-content: space-around;
   }
   .shop-btn {
     width: 150px;

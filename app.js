@@ -13,16 +13,16 @@ const User = require("./models/user");
 const stripe = require("stripe")(process.env.Token);
 const PORT = process.env.PORT || 3000;
 // db
-const dbUri =
-  "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-mongoose
-  .connect(dbUri)
-  .then((results) =>
-    app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
-    })
-  )
-  .catch((err) => console.log(err));
+// const dbUri =
+//   "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// mongoose
+//   .connect(dbUri)
+//   .then((results) =>
+//     app.listen(PORT, () => {
+//       console.log(`Server is running on http://localhost:${PORT}`);
+//     })
+//   )
+//   .catch((err) => console.log(err));
 
 const hbs = create({
   defaultLayout: "main",
@@ -110,6 +110,6 @@ app.post("/community", (req, res) => {
   console.log(req.body);
 });
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

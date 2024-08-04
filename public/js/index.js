@@ -1,3 +1,4 @@
+// Toggle side menu for mobile users
 let sidebar = document.getElementById("sidebar");
 if (sidebar) {
   function showSidebar() {
@@ -17,6 +18,7 @@ if (sidebar) {
   });
 }
 
+// MAin page div redirect
 const allLinks = {
   monitorLink: "http://localhost:3000/monitors",
   keyboardLink: "http://localhost:3000/keyboards",
@@ -24,7 +26,6 @@ const allLinks = {
   headphonesLink: "http://localhost:3000/headphones",
   communityLink: "http://localhost:3000/community",
 };
-
 let monitorDiv = document.getElementById("monitorClick");
 if (monitorDiv) {
   monitorDiv.addEventListener("click", () => {
@@ -56,6 +57,7 @@ if (communityDiv) {
   });
 }
 
+// Create account form display
 let createAccountBtn = document.getElementById("create-account-btn");
 let goBackBtn = document.getElementById("back-btn");
 const messageForm = document.getElementById("message-card-form");
@@ -73,6 +75,7 @@ if (createAccountBtn) {
   });
 }
 
+// Login account for display
 let loginBtn = document.getElementById("login-btn");
 if (loginBtn) {
   loginBtn.addEventListener("click", () => {
