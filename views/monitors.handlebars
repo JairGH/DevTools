@@ -10,7 +10,7 @@
                 <p>{{monitor.detail_1}}</p>
                 <p>{{monitor.detail_2}}</p>
                 <p>Price:<span id="dollar-sign"> $</span>{{monitor.price}}</p>
-                <form action="/create-checkout-session/{{this.id}}" method="POST">
+                <form action="/create-checkout-session/{{this.id}}" method="POST" class="checkout-form">
                     <button type="submit" id="checkout-button" class="shop-btn">Checkout</button>
                 </form>
             </div>

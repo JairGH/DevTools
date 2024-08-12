@@ -346,8 +346,8 @@ nav li {
   border: 1px solid #333;
   color: black;
 }
-#submit-btn,
-#submit-btn2 {
+#submit-btn-account,
+#submit-btn-login {
   border: 0;
   width: 180px;
   background: #111;
@@ -357,8 +357,8 @@ nav li {
   font-weight: bold;
   margin-top: 8px;
 }
-#back-btn,
-#back-btn2 {
+#back-btn-account,
+#back-btn-login {
   border: 0;
   width: 140px;
   background: var(--blue-color);
@@ -475,6 +475,10 @@ nav li {
   }
   .message-card-content {
     font-size: 16px;
+  }
+  .checkout-form {
+    display: flex;
+    justify-content: center;
   }
 }
 @media (min-width: 2000px) {

@@ -18,7 +18,7 @@ if (sidebar) {
   });
 }
 
-// MAin page div redirect
+// Main page div redirect
 const allLinks = {
   monitorLink: "http://localhost:3000/monitors",
   keyboardLink: "http://localhost:3000/keyboards",
@@ -59,7 +59,7 @@ if (communityDiv) {
 
 // Create account form display
 let createAccountBtn = document.getElementById("create-account-btn");
-let goBackBtn = document.getElementById("back-btn");
+let goBackBtn = document.getElementById("back-btn-account");
 const messageForm = document.getElementById("message-card-form");
 if (createAccountBtn) {
   createAccountBtn.addEventListener("click", () => {
@@ -82,7 +82,7 @@ if (loginBtn) {
     const loginForm = document.getElementById("login-card-form");
     const loginMessage = document.getElementById("login-message");
     const defaultMessage = document.getElementById("message-card-content");
-    let goBackBtn2 = document.getElementById("back-btn2");
+    let goBackBtn2 = document.getElementById("back-btn-login");
     defaultMessage.style.display = "none";
     messageForm.style.display = "none";
     loginForm.style.display = "flex";
