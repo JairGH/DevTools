@@ -36,6 +36,8 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+var user = false;
+
 app.get("/", (req, res) => {
   res.render("home");
 });

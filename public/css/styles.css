@@ -357,6 +357,7 @@ nav li {
   font-weight: bold;
   margin-top: 8px;
 }
+
 #back-btn-account,
 #back-btn-login {
   border: 0;
@@ -369,10 +370,12 @@ nav li {
   margin-top: 8px;
   margin-bottom: 8px;
 }
+
 #or {
   color: var(--blue-color);
   margin: 6px;
 }
+
 #create-account-btn,
 #login-btn {
   border: 0;
@@ -388,6 +391,39 @@ nav li {
   opacity: 0.8;
 }
 
+.create-post-btn {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 7rem;
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid #3b3b3b;
+  border-radius: 0.9375em;
+  box-sizing: border-box;
+  color: #3b3b3b;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 2.7px;
+  font-weight: 500;
+  line-height: normal;
+  width: 240px;
+  margin: 0;
+  padding: 1em 1em;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+.create-post-btn:disabled {
+  pointer-events: none;
+}
+.create-post-btn:hover {
+  color: #fff;
+  background-color: var(--green-color);
+  border: 0.125em solid var(--green-color);
+}
 /* ! */
 @media (max-width: 430px) {
   #sidebar {
@@ -479,6 +515,19 @@ nav li {
   .checkout-form {
     display: flex;
     justify-content: center;
+  }
+  .card > #create-post {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+  .create-post-btn {
+    position: relative;
+    top: 16rem;
   }
 }
 @media (min-width: 2000px) {
