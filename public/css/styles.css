@@ -304,12 +304,6 @@ nav li {
   margin-bottom: 10px;
 }
 
-#login-card-form {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
 #login-card-form input {
   width: 200px;
   margin-bottom: 8px;
@@ -328,14 +322,10 @@ nav li {
   display: flex;
   flex-direction: column;
 }
-#account-card-form {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
 
-#account-card-form input {
+#account-card-form input,
+#post-form input,
+#description-post {
   width: 200px;
   margin-bottom: 8px;
   outline: 0;
@@ -345,7 +335,13 @@ nav li {
   border-radius: 14px;
   border: 1px solid #333;
   color: black;
+  height: auto;
 }
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
 #submit-btn-account,
 #submit-btn-login {
   border: 0;
@@ -392,6 +388,7 @@ nav li {
 }
 
 .create-post-btn {
+  visibility: visible;
   display: flex;
   justify-content: center;
   position: fixed;
@@ -423,6 +420,83 @@ nav li {
   color: #fff;
   background-color: var(--green-color);
   border: 0.125em solid var(--green-color);
+}
+#post-form {
+  width: 340px;
+  height: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 10px 10px #323232;
+  border: 3px solid #323232;
+  padding: 20px;
+}
+#title-post,
+#description-post {
+  font-size: 16px;
+  height: auto;
+}
+#cancel-btn {
+  border: 0;
+  width: 180px;
+  background: var(--blue-color);
+  color: #fff;
+  padding: 0.68em;
+  border-radius: 14px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+.select-img-btn {
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid #3b3b3b;
+  border-radius: 0.9375em;
+  box-sizing: border-box;
+  color: #3b3b3b;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  line-height: normal;
+  width: 220px;
+  /* margin-bottom: 1rem; */
+  padding: 1em 1em;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+.select-img-btn:hover {
+  border: 0.125em solid var(--green-color);
+  color: var(--green-color);
+}
+#user-photo {
+  margin: 0.3rem;
+  width: 250px;
+  height: 200px;
+}
+#account-card-form,
+#login-card-form,
+#post-form {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#input-file {
+  visibility: hidden;
+}
+.img-label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 /* ! */
 @media (max-width: 430px) {

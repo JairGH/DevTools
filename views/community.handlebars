@@ -1,5 +1,55 @@
+{{!-- <div class="community-container">
+    <div class="message-card">
+        <span class="message-card-title">Message !</span>
+        <p id="message-card-content">Create an account to interact with the community.
+        </p>
+        <p id="login-message">Welcome back developer.</p>
+        <div id="message-card-form">
+            <button class="sign-up" id="create-account-btn"> Create Account</button>
+            <span id="or"> -- or --</span>
+            <button class="sign-up" id="login-btn"> Login</button>
+        </div>
+        <div id="account-card-form">
+            <form action="/community" method="post">
+                <label for="username"></label>
+                <input placeholder="Name" type="text" name="username" required>
+                <label for="email"></label>
+                <input placeholder="Your Email" type="email" name="email" required>
+                <label for="password"></label>
+                <input placeholder="Password" type="password" name="password" required>
+                <button id="submit-btn-account">Submit</button>
+            </form>
+            <button id="back-btn-account">← Back</button>
+        </div>
+        <div id="login-card-form">
+            <form action="/community/login" method="get">
+                <label for="email"></label>
+                <input placeholder="Your Email" type="email" name="email" required>
+                <label for="password"></label>
+                <input placeholder="Password" type="password" name="password" required>
+                <button id="submit-btn-login">Submit</button>
+            </form>
+            <button id="back-btn-login">← Back</button>
+        </div>
+    </div>
+</div> --}}
 <div class="community-container">
     <button class="create-post-btn" id="create-btn">
         Create new post
     </button>
+    <div id="post-form">
+        <form action="/" method="post">
+            <div class="img-label-container">
+                <img src="" id="user-photo">
+                <label for="input-file" class="select-img-btn">Choose image</label>
+            </div>
+            <input type="file" accept="image/jpeg, image/png, image/jpq" id="input-file">
+            <label for="title"></label>
+            <input placeholder="Title" type="text" name="title" id="title-post" required>
+            <label for="description"></label>
+            <textarea placeholder="Provide a description." name="description" id="description-post" required></textarea>
+            <button id="submit-btn-account">Post</button>
+            <button id="cancel-btn">Cancel</button>
+        </form>
+    </div>
 </div>

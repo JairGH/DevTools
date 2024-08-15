@@ -97,3 +97,17 @@ if (loginBtn) {
     }
   });
 }
+// Create post form
+let createPost = document.getElementById("create-btn");
+if (createPost) {
+  let userPhoto = document.getElementById("user-photo");
+  let inputFile = document.getElementById("input-file");
+  createPost.addEventListener("click", () => {
+    let createPostForm = document.getElementById("post-form");
+    createPostForm.style.display = "flex";
+    createPost.style.visibility = "hidden";
+    inputFile.onchange = () => {
+      userPhoto.src = URL.createObjectURL(inputFile.files[0]);
+    };
+  });
+}
