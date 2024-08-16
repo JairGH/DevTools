@@ -324,8 +324,7 @@ nav li {
 }
 
 #account-card-form input,
-#post-form input,
-#description-post {
+#description-post input {
   width: 200px;
   margin-bottom: 8px;
   outline: 0;
@@ -337,11 +336,6 @@ nav li {
   color: black;
   height: auto;
 }
-textarea {
-  overflow: auto;
-  resize: none;
-}
-
 #submit-btn-account,
 #submit-btn-login {
   border: 0;
@@ -353,7 +347,6 @@ textarea {
   font-weight: bold;
   margin-top: 8px;
 }
-
 #back-btn-account,
 #back-btn-login {
   border: 0;
@@ -366,7 +359,6 @@ textarea {
   margin-top: 8px;
   margin-bottom: 8px;
 }
-
 #or {
   color: var(--blue-color);
   margin: 6px;
@@ -422,20 +414,50 @@ textarea {
   border: 0.125em solid var(--green-color);
 }
 #post-form {
-  width: 340px;
-  height: auto;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 12px;
+  width: 450px;
+  height: auto;
   background: #fff;
   border-radius: 20px;
   box-shadow: 10px 10px #323232;
   border: 3px solid #323232;
-  padding: 20px;
+  padding: 2rem;
 }
+#title-post,
+#description-post {
+  width: 280px;
+  margin-bottom: 8px;
+  outline: 0;
+  background: rgb(255, 255, 255);
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.6em;
+  border-radius: 14px;
+  border: 1px solid #333;
+  color: black;
+  height: auto;
+}
+textarea {
+  height: 2rem;
+  overflow: auto;
+  resize: none;
+}
+#account-card-form,
+#login-card-form {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#post-form {
+  visibility: hidden;
+}
+#input-file {
+  visibility: hidden;
+}
+
 #title-post,
 #description-post {
   font-size: 16px;
@@ -478,25 +500,21 @@ textarea {
 }
 #user-photo {
   margin: 0.3rem;
-  width: 250px;
-  height: 200px;
-}
-#account-card-form,
-#login-card-form,
-#post-form {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-#input-file {
-  visibility: hidden;
+  width: 400px;
+  height: 250px;
+  border-radius: 5px;
 }
 .img-label-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+}
+.input-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 /* ! */
 @media (max-width: 430px) {

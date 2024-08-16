@@ -43,13 +43,18 @@
                 <img src="" id="user-photo">
                 <label for="input-file" class="select-img-btn">Choose image</label>
             </div>
-            <input type="file" accept="image/jpeg, image/png, image/jpq" id="input-file">
-            <label for="title"></label>
-            <input placeholder="Title" type="text" name="title" id="title-post" required>
-            <label for="description"></label>
-            <textarea placeholder="Provide a description." name="description" id="description-post" required></textarea>
-            <button id="submit-btn-account">Post</button>
-            <button id="cancel-btn">Cancel</button>
+            <div class="input-section">
+                <input type="file" accept="image/jpeg, image/png, image/jpq" id="input-file">
+                <label for="title"></label>
+                <input placeholder="Title" type="text" name="title" id="title-post" required>
+                <label for="description"></label>
+                <textarea placeholder="Provide a description." name="description" rows="4" id="description-post"
+                    required></textarea>
+                <div>
+                    <button id="submit-btn-account">Post</button>
+                    <button id="cancel-btn">Cancel</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
