@@ -431,7 +431,6 @@ nav li {
 }
 
 .skeleton-placeholder {
-  visibility: hidden;
   width: 400px;
   height: 250px;
   background-color: #e0e0e0;
@@ -444,6 +443,7 @@ nav li {
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
+  margin-bottom: 10px;
 }
 
 @keyframes shimmer {
@@ -546,7 +546,9 @@ textarea {
 }
 
 #user-photo {
+  display: none;
   margin: 0.3rem;
+  margin-bottom: 10px;
   width: 400px;
   height: 250px;
   border-radius: 5px;
@@ -679,7 +681,8 @@ textarea {
   #post-form:first-child {
     width: max-content;
   }
-  #user-photo {
+  #user-photo,
+  .skeleton-placeholder {
     width: 280px;
   }
   #create-post-btn,
