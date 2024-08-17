@@ -111,3 +111,4 @@ if (createPostBtn) {
     };
   });
 }
+// Btn for creating a post

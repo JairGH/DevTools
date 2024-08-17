@@ -337,7 +337,8 @@ nav li {
   height: auto;
 }
 #submit-btn-account,
-#submit-btn-login {
+#submit-btn-login,
+#create-post-btn {
   border: 0;
   width: 180px;
   background: #111;
@@ -347,8 +348,10 @@ nav li {
   font-weight: bold;
   margin-top: 8px;
 }
+
 #back-btn-account,
-#back-btn-login {
+#back-btn-login,
+#cancel-post-btn {
   border: 0;
   width: 140px;
   background: var(--blue-color);
@@ -618,8 +621,24 @@ textarea {
     outline: inherit;
   }
   .create-post-btn {
-    position: relative;
-    top: 16rem;
+    top: 90%;
+    position: fixed;
+    width: 50%;
+  }
+  #post-form {
+    height: 500px;
+    width: 300px;
+  }
+
+  #post-form:first-child {
+    width: max-content;
+  }
+  #user-photo {
+    width: 280px;
+  }
+  #create-post-btn,
+  #cancel-post-btn {
+    width: 130px;
   }
 }
 @media (min-width: 2000px) {
