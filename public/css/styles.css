@@ -429,6 +429,49 @@ nav li {
   border: 3px solid #323232;
   padding: 2rem;
 }
+
+.skeleton-placeholder {
+  visibility: hidden;
+  width: 400px;
+  height: 250px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    90deg,
+    #e0e0e0 25%,
+    #f0f0f0 50%,
+    #e0e0e0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Show skeleton until an image is selected */
+#input-file:valid + .img-label-container .skeleton-placeholder {
+  display: none;
+}
+
+#input-file:invalid + .img-label-container .skeleton-placeholder {
+  display: block;
+}
+
+#input-file:valid + .img-label-container img {
+  display: block;
+}
+
+#input-file:invalid + .img-label-container img {
+  display: none;
+}
+
 #title-post,
 #description-post {
   width: 280px;
@@ -501,12 +544,14 @@ textarea {
   border: 0.125em solid var(--green-color);
   color: var(--green-color);
 }
+
 #user-photo {
   margin: 0.3rem;
   width: 400px;
   height: 250px;
   border-radius: 5px;
 }
+
 .img-label-container {
   display: flex;
   flex-direction: column;
@@ -627,7 +672,8 @@ textarea {
   }
   #post-form {
     height: 500px;
-    width: 300px;
+    width: 290px;
+    max-width: 300px;
   }
 
   #post-form:first-child {

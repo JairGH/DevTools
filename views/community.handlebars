@@ -39,12 +39,12 @@
     </button>
     <div id="post-form">
         <form action="/" method="post">
+            <img src="" id="user-photo" class="skeleton-placeholder">
             <div class="img-label-container">
-                <img src="" id="user-photo">
                 <label for="input-file" class="select-img-btn">Choose image</label>
             </div>
             <div class="input-section">
-                <input type="file" accept="image/jpeg, image/png, image/jpq" id="input-file">
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" required>
                 <label for="title"></label>
                 <input placeholder="Title" type="text" name="title" id="title-post" required>
                 <label for="description"></label>
