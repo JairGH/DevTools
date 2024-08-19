@@ -683,7 +683,7 @@ textarea {
   }
   #user-photo,
   .skeleton-placeholder {
-    width: 280px;
+    width: 100%;
   }
   #create-post-btn,
   #cancel-post-btn {

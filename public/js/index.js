@@ -114,6 +114,7 @@ if (createPostBtn) {
     createPostBtn.style.visibility = "hidden";
     inputFile.onchange = () => {
       userPhoto.src = URL.createObjectURL(inputFile.files[0]);
+      console.log(userPhoto.src);
       imageSkeleton.style.display = "none";
       userPhoto.style.display = "block";
     };

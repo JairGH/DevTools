@@ -135,6 +135,11 @@ app.get("/community/login", async (req, res) => {
   }
 });
 
+app.post("/community/post", (req, res) => {
+  const userPost = req.body;
+  console.log(userPost);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
