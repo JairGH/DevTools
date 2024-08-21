@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const mongoose = require("mongoose");
 require("dotenv").config();
+const mongoose = require("mongoose");
 const { create } = require("express-handlebars");
 const monitorsData = require("./public/data/monitors");
 const keyboardsData = require("./public/data/keyboards");
@@ -11,18 +11,9 @@ const headphonesData = require("./public/data/headphones");
 const allProducts = require("./public/data/allProducts");
 const User = require("./models/user");
 const stripe = require("stripe")(process.env.Token);
+// const getImgUrl = require("./public/js/uploadImage");
 const PORT = process.env.PORT || 3000;
-// db
-// const dbUri =`
-//   "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-// mongoose
-//   .connect(dbUri)
-//   .then((results) =>
-//     app.listen(PORT, () => {
-//       console.log(`Server is running on http://localhost:${PORT}`);
-//     })
-//   )
-//   .catch((err) => console.log(err));
+const cloudinary = require("cloudinary").v2;
 
 const hbs = create({
   defaultLayout: "main",
@@ -35,6 +26,18 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// db
+// const dbUri =`
+//   "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// mongoose
+//   .connect(dbUri)
+//   .then((results) =>
+//     app.listen(PORT, () => {
+//       console.log(`Server is running on http://localhost:${PORT}`);
+//     })
+//   )
+//   .catch((err) => console.log(err));
 
 var user = false;
 
@@ -137,7 +140,6 @@ app.get("/community/login", async (req, res) => {
 
 app.post("/community/post", (req, res) => {
   const userPost = req.body;
-  console.log(userPost);
 });
 
 app.listen(PORT, () => {

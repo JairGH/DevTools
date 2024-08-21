@@ -98,25 +98,3 @@ if (loginBtn) {
   });
 }
 // Create post form
-let createPostBtn = document.getElementById("create-btn");
-let imageSkeleton = document.getElementsByClassName("skeleton-placeholder")[0];
-const showSkeleton = () => {
-  imageSkeleton.style.display = "block";
-};
-if (createPostBtn) {
-  let userPhoto = document.getElementById("user-photo");
-  let inputFile = document.getElementById("input-file");
-  let imageTag = document.getElementById("user-photo");
-  imageTag.style.display = createPostBtn.addEventListener("click", () => {
-    let createPostForm = document.getElementById("post-form");
-    createPostForm.style.visibility = "visible";
-    showSkeleton();
-    createPostBtn.style.visibility = "hidden";
-    inputFile.onchange = () => {
-      userPhoto.src = URL.createObjectURL(inputFile.files[0]);
-      console.log(userPhoto.src);
-      imageSkeleton.style.display = "none";
-      userPhoto.style.display = "block";
-    };
-  });
-}

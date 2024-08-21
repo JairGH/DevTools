@@ -431,6 +431,7 @@ nav li {
 }
 
 .skeleton-placeholder {
+  display: none;
   width: 400px;
   height: 250px;
   background-color: #e0e0e0;
@@ -455,21 +456,12 @@ nav li {
   }
 }
 
-/* Show skeleton until an image is selected */
-#input-file:valid + .img-label-container .skeleton-placeholder {
+#input-file:valid ~ .img-container .skeleton-placeholder {
   display: none;
 }
 
-#input-file:invalid + .img-label-container .skeleton-placeholder {
+#input-file:valid ~ .img-container img {
   display: block;
-}
-
-#input-file:valid + .img-label-container img {
-  display: block;
-}
-
-#input-file:invalid + .img-label-container img {
-  display: none;
 }
 
 #title-post,
@@ -532,7 +524,7 @@ textarea {
   font-weight: 500;
   line-height: normal;
   width: 220px;
-  /* margin-bottom: 1rem; */
+  margin-bottom: 1rem;
   padding: 1em 1em;
   text-align: center;
   text-decoration: none;
