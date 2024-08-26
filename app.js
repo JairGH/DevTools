@@ -10,6 +10,7 @@ const mouseData = require("./public/data/mouse");
 const headphonesData = require("./public/data/headphones");
 const allProducts = require("./public/data/allProducts");
 const User = require("./models/user");
+const UserPost = require("./models/userPost");
 const stripe = require("stripe")(process.env.Token);
 
 const PORT = process.env.PORT || 3000;
@@ -26,17 +27,16 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// db
-// const dbUri =`
-//   "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-// mongoose
-//   .connect(dbUri)
-//   .then((results) =>
-//     app.listen(PORT, () => {
-//       console.log(`Server is running on http://localhost:${PORT}`);
-//     })
-//   )
-//   .catch((err) => console.log(err));
+const dbUri =
+  "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+mongoose
+  .connect(dbUri)
+  .then((results) =>
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    })
+  )
+  .catch((err) => console.log(err));
 
 var user = false;
 
@@ -138,11 +138,18 @@ app.get("/community/login", async (req, res) => {
 });
 
 app.post("/community/post", (req, res) => {
-  const userPost = req.body;
-  console.log(userPost);
-  return res.send(userPost);
+  const userPost = new UserPost(req.body);
+  userPost
+    .save()
+    .then((results) => {
+      res.redirect("/monitors");
+    })
+    .catch((err) => {
+      console.log(err, "oh no!");
+    });
+  console.log(req.body);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
