@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cloudName = "di3nk6hyq";
   const uploadPreset = "l3a5wnco";
 
+  let imgUrl;
   const myWidget = cloudinary.createUploadWidget(
     {
       cloudName: cloudName,
@@ -16,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
           .setAttribute("src", result.info.secure_url);
         document.getElementById("user-photo").style.display = "block";
         document.querySelector(".skeleton-placeholder").style.display = "none";
+        imgUrl = result.info.secure_url;
+        document.getElementById("input-file").value = imgUrl;
+        return imgUrl;
       }
     }
   );

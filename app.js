@@ -139,9 +139,8 @@ app.get("/community/login", async (req, res) => {
 
 app.post("/community/post", (req, res) => {
   const userPost = req.body;
-  console.log("====================================");
-  console.log(url, userPost);
-  console.log("====================================");
+  console.log(userPost);
+  return res.send(userPost);
 });
 
 app.listen(PORT, () => {

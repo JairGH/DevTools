@@ -17,7 +17,7 @@
                 <input placeholder="Your Email" type="email" name="email" required>
                 <label for="password"></label>
                 <input placeholder="Password" type="password" name="password" required>
-                <button id="submit-btn-account">Submit</button>
+                <button id="submit-btn-account" type="submit">Submit</button>
             </form>
             <button id="back-btn-account">← Back</button>
         </div>
@@ -27,7 +27,7 @@
                 <input placeholder="Your Email" type="email" name="email" required>
                 <label for="password"></label>
                 <input placeholder="Password" type="password" name="password" required>
-                <button id="submit-btn-login">Submit</button>
+                <button id="submit-btn-login" type="submit">Submit</button>
             </form>
             <button id="back-btn-login">← Back</button>
         </div>
@@ -49,15 +49,14 @@
             </div>
             <div class="img-label-container">
                 <label class="select-img-btn" id="upload_widget">Choose image</label>
-                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" required
-                    style="display:none;">
+                <input type="hidden" id="input-file" style="display:none;" name="img-url" value="">
             </div>
             <div class="input-section">
                 <input placeholder="Title" type="text" name="title" id="title-post" required>
                 <textarea placeholder="Provide a description." name="description" rows="4" id="description-post"
                     required></textarea>
                 <div class="btn-div">
-                    <button id="create-post-btn">Post</button>
+                    <button id="create-post-btn" type="submit">Post</button>
                     <button id="cancel-post-btn">Cancel</button>
                 </div>
             </div>
