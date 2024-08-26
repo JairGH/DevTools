@@ -72,8 +72,13 @@ app.get("/mouse", (req, res) => {
 app.get("/headphones", (req, res) => {
   res.render("headphones", headphonesData);
 });
+
 app.get("/community", (req, res) => {
-  res.render("community");
+  const { user } = req.session;
+  if (!user) {
+    return res.render("community");
+  }
+  res.render("community", { user });
 });
 
 app.get("/create-checkout-session", (req, res) => {
@@ -130,7 +135,7 @@ app.post("/register", (req, res) => {
         sameSite: "strict",
         maxAge: 1000 * 60 * 60,
       })
-      .send({ user, token });
+      .redirect("/community");
   } catch (err) {
     console.log(err);
   }
