@@ -11,9 +11,8 @@ const headphonesData = require("./public/data/headphones");
 const allProducts = require("./public/data/allProducts");
 const User = require("./models/user");
 const stripe = require("stripe")(process.env.Token);
-// const getImgUrl = require("./public/js/uploadImage");
+
 const PORT = process.env.PORT || 3000;
-const cloudinary = require("cloudinary").v2;
 
 const hbs = create({
   defaultLayout: "main",
@@ -140,6 +139,9 @@ app.get("/community/login", async (req, res) => {
 
 app.post("/community/post", (req, res) => {
   const userPost = req.body;
+  console.log("====================================");
+  console.log(url, userPost);
+  console.log("====================================");
 });
 
 app.listen(PORT, () => {
