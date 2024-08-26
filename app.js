@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 require("dotenv").config();
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 const { create } = require("express-handlebars");
 const monitorsData = require("./public/data/monitors");
 const keyboardsData = require("./public/data/keyboards");
@@ -26,6 +28,17 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
+app.use((req, res, next) => {
+  const token = req.cookies.access_token;
+  req.session = { user: null };
+
+  try {
+    const data = jwt.verify(token, process.env.SECRET_JWT_KEY);
+    req.session.user = data;
+  } catch {}
+  next();
+});
 
 const dbUri =
   "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -100,17 +113,27 @@ app.post("/create-checkout-session/:id", async (req, res) => {
   res.redirect(303, session.url);
 });
 
-app.post("/community", (req, res) => {
-  const user = new User(req.body);
-  user
-    .save()
-    .then((results) => {
-      res.redirect("/monitors");
-    })
-    .catch((err) => {
-      console.log(err, "oh no!");
-    });
-  console.log(user.password);
+app.post("/register", (req, res) => {
+  const { username, email, password } = req.body;
+  try {
+    const user = new User({ username, email, password }).save();
+    const token = jwt.sign(
+      { username: user.username },
+      process.env.SECRET_JWT_KEY,
+      {
+        expiresIn: "1h",
+      }
+    );
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+        sameSite: "strict",
+        maxAge: 1000 * 60 * 60,
+      })
+      .send({ user, token });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.get("/community/login", async (req, res) => {
