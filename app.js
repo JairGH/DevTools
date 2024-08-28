@@ -182,9 +182,8 @@ app.get("/community/login", async (req, res) => {
 
 app.post("/community/post", async (req, res) => {
   const { user } = req.session;
-  console.log(user.email);
   try {
-    const findUser = await User.findOne({ email: email });
+    const findUser = await User.findOne({ email: user.email });
 
     if (!findUser) {
       return res.status(404).send("User not found");
