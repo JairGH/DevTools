@@ -37,6 +37,7 @@ app.use((req, res, next) => {
     const data = jwt.verify(token, process.env.SECRET_JWT_KEY);
     req.session.user = data;
   } catch {}
+
   next();
 });
 
@@ -75,10 +76,34 @@ app.get("/headphones", (req, res) => {
 
 app.get("/community", (req, res) => {
   const { user } = req.session;
+  console.log(user);
   if (!user) {
     return res.render("community");
   }
   res.render("community", { user });
+});
+
+app.post("/register", (req, res) => {
+  const { username, email, password } = req.body;
+  try {
+    const user = new User({ username, email, password }).save();
+    const token = jwt.sign(
+      { username: user.username, email: email },
+      process.env.SECRET_JWT_KEY,
+      {
+        expiresIn: "1h",
+      }
+    );
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+        sameSite: "strict",
+        maxAge: 1000 * 60 * 60,
+      })
+      .redirect("/community");
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.get("/create-checkout-session", (req, res) => {
@@ -118,35 +143,25 @@ app.post("/create-checkout-session/:id", async (req, res) => {
   res.redirect(303, session.url);
 });
 
-app.post("/register", (req, res) => {
-  const { username, email, password } = req.body;
-  try {
-    const user = new User({ username, email, password }).save();
-    const token = jwt.sign(
-      { username: user.username },
-      process.env.SECRET_JWT_KEY,
-      {
-        expiresIn: "1h",
-      }
-    );
-    res
-      .cookie("access_token", token, {
-        httpOnly: true,
-        sameSite: "strict",
-        maxAge: 1000 * 60 * 60,
-      })
-      .redirect("/community");
-  } catch (err) {
-    console.log(err);
-  }
-});
-
 app.get("/community/login", async (req, res) => {
   const { email, password } = req.query;
   try {
     const user = await User.findOne({ email: email });
     if (!user) {
       return res.send("Invalid email or password");
+    } else {
+      const token = jwt.sign(
+        { username: user.username, email: email },
+        process.env.SECRET_JWT_KEY,
+        {
+          expiresIn: "1h",
+        }
+      );
+      res.cookie("access_token", token, {
+        httpOnly: true,
+        sameSite: "strict",
+        maxAge: 1000 * 60 * 60,
+      });
     }
     user.comparePassword(password, function (err, isMatch) {
       if (err) {
@@ -154,7 +169,7 @@ app.get("/community/login", async (req, res) => {
         return res.status(500).send("Server error");
       }
       if (isMatch) {
-        res.redirect("/");
+        res.redirect("/community");
       } else {
         res.send("Invalid email or password");
       }
@@ -165,16 +180,30 @@ app.get("/community/login", async (req, res) => {
   }
 });
 
-app.post("/community/post", (req, res) => {
-  const userPost = new UserPost(req.body);
-  userPost
-    .save()
-    .then((results) => {
-      res.redirect("/monitors");
-    })
-    .catch((err) => {
-      console.log(err, "oh no!");
-    });
+app.post("/community/post", async (req, res) => {
+  const { user } = req.session;
+  console.log(user.email);
+  try {
+    const findUser = await User.findOne({ email: email });
+
+    if (!findUser) {
+      return res.status(404).send("User not found");
+    }
+
+    const newPost = new UserPost(req.body);
+    await newPost.save();
+
+    findUser.posts.push(newPost._id);
+    await findUser.save();
+
+    console.log("Post created and associated with user successfully.");
+
+    res.redirect("/monitors");
+  } catch (error) {
+    console.error("Error creating post for user:", error);
+    res.status(500).send("Server error");
+  }
+
   console.log(req.body);
 });
 
