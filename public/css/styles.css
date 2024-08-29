@@ -558,6 +558,37 @@ textarea {
   align-items: center;
   flex-direction: column;
 }
+/* Card for users post */
+#user-card-div {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.user-card {
+  max-width: 1300px;
+  height: 310px;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 10px 10px #323232;
+  border: 3px solid #323232;
+  margin-bottom: 2.5rem;
+}
+#user-description {
+  font-size: 20px;
+}
+#post-info {
+  padding-left: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+/*  */
 /* ! */
 @media (max-width: 430px) {
   #sidebar {
@@ -603,9 +634,7 @@ textarea {
     flex-direction: column;
   }
   /* Product Card */
-  #information {
-    margin-top: 1.5rem;
-  }
+
   .card {
     display: flex;
     height: auto;

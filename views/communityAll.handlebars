@@ -1,0 +1,11 @@
+<div id="user-card-div">
+    {{#each monitors as |monitor|}}
+    <div class="user-card">
+        <img src="{{monitor.photo}}" id="product-image" alt="">
+        <div id="post-info">
+            <h2>{{monitor.product_name}}</h2>
+            <p id="user-description">{{monitor.description}}</p>
+        </div>
+    </div>
+    {{/each}}
+</div>

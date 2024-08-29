@@ -41,18 +41,16 @@ app.use((req, res, next) => {
   next();
 });
 
-const dbUri =
-  "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-mongoose
-  .connect(dbUri)
-  .then((results) =>
-    app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
-    })
-  )
-  .catch((err) => console.log(err));
-
-var user = false;
+// const dbUri =
+//   "mongodb+srv://dbAdmin:dbAdmin123@cluster0.kmvoyb9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// mongoose
+//   .connect(dbUri)
+//   .then((results) =>
+//     app.listen(PORT, () => {
+//       console.log(`Server is running on http://localhost:${PORT}`);
+//     })
+//   )
+//   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -78,69 +76,19 @@ app.get("/community", (req, res) => {
   const { user } = req.session;
   console.log(user);
   if (!user) {
-    return res.render("community");
+    return res.render("/community");
   }
   res.render("community", { user });
 });
 
-app.post("/register", (req, res) => {
-  const { username, email, password } = req.body;
-  try {
-    const user = new User({ username, email, password }).save();
-    const token = jwt.sign(
-      { username: user.username, email: email },
-      process.env.SECRET_JWT_KEY,
-      {
-        expiresIn: "1h",
-      }
-    );
-    res
-      .cookie("access_token", token, {
-        httpOnly: true,
-        sameSite: "strict",
-        maxAge: 1000 * 60 * 60,
-      })
-      .redirect("/community");
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-app.get("/create-checkout-session", (req, res) => {
-  res.render("checkout");
-});
-
-app.get("/success", (req, res) => {
-  res.render("success");
-});
-app.get("/cancel", (req, res) => {
-  res.render("cancel");
-});
-
-app.post("/create-checkout-session/:id", async (req, res) => {
-  const itemId = parseInt(req.params.id, 10);
-  const product = allProducts.items.find((p) => p.id === itemId);
-  const price = await stripe.prices.create({
-    currency: "usd",
-    unit_amount: product.price,
-    product_data: {
-      name: product.product_name,
-    },
-  });
-
-  const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        price: price.id,
-        quantity: 1,
-      },
-    ],
-    mode: "payment",
-    success_url: `http://localhost:3000/success`,
-    cancel_url: `http://localhost:3000/cancel`,
-  });
-
-  res.redirect(303, session.url);
+app.get("/community/all", (req, res) => {
+  // const { user } = req.session;
+  // console.log(user);
+  // if (!user) {
+  //   return res.render("/communityAll");
+  // , { user }
+  // }
+  res.render("communityAll", monitorsData);
 });
 
 app.get("/community/login", async (req, res) => {
@@ -197,15 +145,74 @@ app.post("/community/post", async (req, res) => {
 
     console.log("Post created and associated with user successfully.");
 
-    res.redirect("/monitors");
+    res.redirect("/community/all");
   } catch (error) {
     console.error("Error creating post for user:", error);
     res.status(500).send("Server error");
   }
-
-  console.log(req.body);
 });
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on http://localhost:${PORT}`);
-// });
+app.post("/register", (req, res) => {
+  const { username, email, password } = req.body;
+  try {
+    const user = new User({ username, email, password }).save();
+    const token = jwt.sign(
+      { username: user.username, email: email },
+      process.env.SECRET_JWT_KEY,
+      {
+        expiresIn: "1h",
+      }
+    );
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+        sameSite: "strict",
+        maxAge: 1000 * 60 * 60,
+      })
+      .redirect("/community");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.get("/create-checkout-session", (req, res) => {
+  res.render("checkout");
+});
+
+app.post("/create-checkout-session/:id", async (req, res) => {
+  const itemId = parseInt(req.params.id, 10);
+  const product = allProducts.items.find((p) => p.id === itemId);
+  const price = await stripe.prices.create({
+    currency: "usd",
+    unit_amount: product.price,
+    product_data: {
+      name: product.product_name,
+    },
+  });
+
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        price: price.id,
+        quantity: 1,
+      },
+    ],
+    mode: "payment",
+    success_url: `http://localhost:3000/success`,
+    cancel_url: `http://localhost:3000/cancel`,
+  });
+
+  res.redirect(303, session.url);
+});
+
+app.get("/success", (req, res) => {
+  res.render("success");
+});
+
+app.get("/cancel", (req, res) => {
+  res.render("cancel");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
