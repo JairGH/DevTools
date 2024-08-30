@@ -608,8 +608,8 @@ textarea {
   margin-bottom: 0px;
 }
 /* ? */
-.edit-btn1,
-.edit-btn2 {
+#edit-btn1,
+#edit-btn2 {
   width: 45px;
   height: 45px;
   border: none;
@@ -624,22 +624,22 @@ textarea {
   margin-right: 10px;
 }
 
-.edit-btn1:hover {
+#edit-btn1:hover {
   background-color: var(--blue-color);
   transition-duration: 0.3s;
 }
-.edit-btn2:hover {
+#edit-btn2:hover {
   background-color: rgb(213, 41, 41);
   transition-duration: 0.3s;
 }
 
-.edit-btn1:hover {
+#edit-btn1:hover {
   border-bottom: 2px solid rgb(235, 235, 235);
   border-left: 2px solid rgb(235, 235, 235);
   border-right: 2px solid rgb(235, 235, 235);
 }
 
-.edit-btn2:hover {
+#edit-btn2:hover {
   border-bottom: 2px solid rgb(235, 235, 235);
   border-left: 2px solid rgb(235, 235, 235);
   border-right: 2px solid rgb(235, 235, 235);
@@ -691,7 +691,6 @@ textarea {
     flex-direction: column;
   }
   /* Product Card */
-
   .card {
     display: flex;
     height: auto;
@@ -736,6 +735,20 @@ textarea {
     display: flex;
     justify-content: center;
   }
+  /* User post component */
+  .user-card {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    margin: 16px;
+  }
+  .user-card > img {
+    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    height: 190px;
+  }
+  /* Post component */
   .card > #create-post {
     background: none;
     color: inherit;

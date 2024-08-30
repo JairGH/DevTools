@@ -97,4 +97,4 @@ if (loginBtn) {
     }
   });
 }
-// Create post form
+// Delete action from post
