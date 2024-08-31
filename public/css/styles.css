@@ -608,8 +608,8 @@ textarea {
   margin-bottom: 0px;
 }
 /* ? */
-#edit-btn1,
-#edit-btn2 {
+#edit-btn,
+#delete-btn {
   width: 45px;
   height: 45px;
   border: none;
@@ -624,22 +624,22 @@ textarea {
   margin-right: 10px;
 }
 
-#edit-btn1:hover {
+#edit-btn:hover {
   background-color: var(--blue-color);
   transition-duration: 0.3s;
 }
-#edit-btn2:hover {
+#delete-btn:hover {
   background-color: rgb(213, 41, 41);
   transition-duration: 0.3s;
 }
 
-#edit-btn1:hover {
+#edit-btn:hover {
   border-bottom: 2px solid rgb(235, 235, 235);
   border-left: 2px solid rgb(235, 235, 235);
   border-right: 2px solid rgb(235, 235, 235);
 }
 
-#edit-btn2:hover {
+#delete-btn:hover {
   border-bottom: 2px solid rgb(235, 235, 235);
   border-left: 2px solid rgb(235, 235, 235);
   border-right: 2px solid rgb(235, 235, 235);
