@@ -1,20 +1,42 @@
 const express = require("express");
 const router = express.Router();
+
 const User = require("../models/user");
 const UserPost = require("../models/userPost");
 const jwt = require("jsonwebtoken");
 const monitorsData = require("../public/data/monitors");
+const authMiddleware = require("../middleware/authMiddleware");
 
 router.get("/community", (req, res) => {
-  const { user } = req.session;
-  if (!user) {
-    return res.render("/community");
-  }
-  res.render("community", { user });
+  res.render("community");
 });
 
 router.get("/community/all", (req, res) => {
   res.render("communityAll", monitorsData);
+});
+
+router.post("/register", async (req, res) => {
+  const { username, email, password } = req.body;
+  try {
+    const user = await new User({ username, email, password }).save();
+    const token = jwt.sign(
+      { username: user.username, email: email },
+      process.env.SECRET_JWT_KEY,
+      {
+        expiresIn: "1h",
+      }
+    );
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+        sameSite: "strict",
+        maxAge: 1000 * 60 * 60,
+      })
+      .redirect("/community");
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Server error");
+  }
 });
 
 router.get("/community/login", async (req, res) => {
@@ -54,8 +76,8 @@ router.get("/community/login", async (req, res) => {
   }
 });
 
-router.post("/community/post", async (req, res) => {
-  const { user } = req.session;
+router.post("/community/post", authMiddleware, async (req, res) => {
+  const { user } = req;
   try {
     const findUser = await User.findOne({ email: user.email });
 
