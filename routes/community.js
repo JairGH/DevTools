@@ -7,8 +7,10 @@ const jwt = require("jsonwebtoken");
 const monitorsData = require("../public/data/monitors");
 const authMiddleware = require("../middleware/authMiddleware");
 
-router.get("/community", (req, res) => {
-  res.render("community");
+router.get("/community", authMiddleware, (req, res) => {
+  const { user } = req;
+
+  res.render("community", { user });
 });
 
 router.get("/community/all", (req, res) => {
@@ -82,7 +84,7 @@ router.post("/community/post", authMiddleware, async (req, res) => {
     const findUser = await User.findOne({ email: user.email });
 
     if (!findUser) {
-      return res.status(404).send("User not found");
+      return res.status(404).send("User not found.");
     }
     const newPost = new UserPost(req.body);
     await newPost.save();
