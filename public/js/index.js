@@ -97,17 +97,3 @@ if (loginBtn) {
     }
   });
 }
-// Delete action from post
-let deletePostBtn = document.getElementById("delete-btn");
-if (deletePostBtn) {
-  deletePostBtn.addEventListener("click", async () => {
-    try {
-      const findPost = await UserPost.findByIdAndDelete({ id: id });
-      if (!findPost) {
-        return res.res.status(404).send("Post not found");
-      }
-    } catch (error) {
-      console.log(err);
-    }
-  });
-}

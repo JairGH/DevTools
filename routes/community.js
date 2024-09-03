@@ -7,14 +7,20 @@ const jwt = require("jsonwebtoken");
 const monitorsData = require("../public/data/monitors");
 const authMiddleware = require("../middleware/authMiddleware");
 
-router.get("/community", authMiddleware, (req, res) => {
+router.get("/community", authMiddleware, async (req, res) => {
   const { user } = req;
 
-  res.render("community", { user });
-});
+  if (user) {
+    try {
+      const posts = await UserPost.find();
+      return res.render("communityAll", { posts });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).send("Server error");
+    }
+  }
 
-router.get("/community/all", (req, res) => {
-  res.render("communityAll", monitorsData);
+  res.render("community", { user: null });
 });
 
 router.post("/register", async (req, res) => {
@@ -100,5 +106,11 @@ router.post("/community/post", authMiddleware, async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+
+// router.delete("/community/all/:title", async (req, res) => {
+//   try {
+
+//   }
+// })
 
 module.exports = router;

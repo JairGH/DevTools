@@ -1,11 +1,11 @@
 <div>
     <div id="user-card-div">
-        {{#each monitors as |monitor|}}
+        {{#each posts as |post|}}
         <div class="user-card">
-            <img src="{{monitor.photo}}" id="product-image" alt="">
+            <img src="{{post.image}}" id="product-image" alt="">
             <div id="post-info">
-                <h2>{{monitor.product_name}}</h2>
-                <p id="user-description">{{monitor.description}}</p>
+                <h2>{{post.title}}</h2>
+                <p id="user-description">{{post.description}}</p>
                 <div class="actions">
                     <button id="edit-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"

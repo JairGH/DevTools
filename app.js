@@ -15,6 +15,9 @@ const PORT = process.env.PORT || 3000;
 const hbs = create({
   defaultLayout: "main",
   extname: ".handlebars",
+  runtimeOptions: {
+    allowProtoPropertiesByDefault: true,
+  },
 });
 
 app.engine("handlebars", hbs.engine);
