@@ -97,3 +97,30 @@ if (loginBtn) {
     }
   });
 }
+
+// Delete post?
+let deletePostBtn = document.getElementById("delete-btn");
+if (deletePostBtn) {
+  deletePostBtn.addEventListener("click", () => {
+    const postId = deletePostBtn.getAttribute("data-id");
+
+    fetch(`/community/all/${postId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Post deleted successfully.");
+          deletePostBtn.parentElement.remove();
+        } else {
+          alert("Failed to delete the post.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("An error occurred.");
+      });
+  });
+}

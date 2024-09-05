@@ -1,4 +1,28 @@
 <div>
+    <button class="create-post-btn" id="create-btn">
+        Create new post
+    </button>
+    <div id="post-form" style="visibility: hidden;">
+        <form action="/community/post" method="post">
+            <div class="img-container">
+                <div class="skeleton-placeholder"></div>
+                <img src="" id="user-photo" style="display: none;">
+            </div>
+            <div class="img-label-container">
+                <label class="select-img-btn" id="upload_widget">Choose image</label>
+                <input type="text" id="input-file" style="display:none;" name="image" value="">
+            </div>
+            <div class="input-section">
+                <input placeholder="Title" type="text" name="title" id="title-post" required>
+                <textarea placeholder="Provide a description." name="description" rows="4" id="description-post"
+                    required></textarea>
+                <div class="btn-div">
+                    <button id="create-post-btn" type="submit">Post</button>
+                    <button id="cancel-post-btn">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
     <div id="user-card-div">
         {{#each posts as |post|}}
         <div class="user-card">
@@ -14,7 +38,7 @@
                                 d="M120-120v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm584-528 56-56-56-56-56 56 56 56Z" />
                         </svg>
                     </button>
-                    <button id="delete-btn">
+                    <button id="delete-btn" data-id="{{post.id}}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                             fill="#e8eaed">
                             <path
