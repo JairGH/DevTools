@@ -1,7 +1,11 @@
-<div>
-    <button class="create-post-btn" id="create-btn">
-        Create new post
-    </button>
+<div class="community-container">
+
+    <div id="create-post-btn-div">
+        <button class="create-post-btn" id="create-btn">
+            Create new post
+        </button>
+    </div>
+
     <div id="post-form" style="visibility: hidden;">
         <form action="/community/post" method="post">
             <div class="img-container">
@@ -23,7 +27,8 @@
             </div>
         </form>
     </div>
-    <div id="user-card-div">
+
+    {{!-- <div id="user-card-div">
         {{#each posts as |post|}}
         <div class="user-card">
             <img src="{{post.image}}" id="product-image" alt="user-image" class="img-grid">
@@ -49,5 +54,6 @@
             </div>
         </div>
         {{/each}}
-    </div>
+    </div> --}}
+
 </div>

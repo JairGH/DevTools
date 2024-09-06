@@ -108,19 +108,16 @@ router.post("/community/post", authMiddleware, async (req, res) => {
 });
 
 router.delete("/community/all/:id", authMiddleware, async (req, res) => {
-  const { user } = req; // Get the authenticated user
+  const { user } = req;
   const postId = req.params.id;
 
   try {
-    // Find the user by email
     const findUser = await User.findOne({ email: user.email });
 
-    // Check if the user exists
     if (!findUser) {
       return res.status(404).send("User not found.");
     }
 
-    // Check if the post exists and belongs to the user
     const postExists = findUser.posts.some(
       (post) => post._id.toString() === postId
     );
@@ -130,13 +127,11 @@ router.delete("/community/all/:id", authMiddleware, async (req, res) => {
         .send("Post does not belong to the user or does not exist.");
     }
 
-    // Find the post in the UserPost collection
     const findPost = await UserPost.findById(postId);
     if (!findPost) {
       return res.status(404).send("Post not found.");
     }
 
-    // Delete the post
     await UserPost.findByIdAndDelete(postId);
 
     res.status(200).send("Post deleted successfully.");
@@ -145,6 +140,5 @@ router.delete("/community/all/:id", authMiddleware, async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-
 
 module.exports = router;

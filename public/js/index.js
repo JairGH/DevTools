@@ -98,7 +98,18 @@ if (loginBtn) {
   });
 }
 
-// Delete post?
+// Cancel post creation
+let cancelCreatePostBtn = document.getElementById("cancel-post-btn");
+if (cancelCreatePostBtn) {
+  cancelCreatePostBtn.addEventListener("click", () => {
+    let divBtn = document.getElementById("create-post-btn-div");
+    let postContainer = document.getElementById("post-form");
+    postContainer.style.visibility = "hidden";
+    divBtn.style.visibility = "visible";
+  });
+}
+
+// Delete post
 let deletePostBtn = document.getElementById("delete-btn");
 if (deletePostBtn) {
   deletePostBtn.addEventListener("click", () => {

@@ -2,32 +2,6 @@
 </script>
 
 <div class="community-container">
-    {{#if user}}
-    <button class="create-post-btn" id="create-btn">
-        Create new post
-    </button>
-    <div id="post-form" style="visibility: hidden;">
-        <form action="/community/post" method="post">
-            <div class="img-container">
-                <div class="skeleton-placeholder"></div>
-                <img src="" id="user-photo" style="display: none;">
-            </div>
-            <div class="img-label-container">
-                <label class="select-img-btn" id="upload_widget">Choose image</label>
-                <input type="text" id="input-file" style="display:none;" name="image" value="">
-            </div>
-            <div class="input-section">
-                <input placeholder="Title" type="text" name="title" id="title-post" required>
-                <textarea placeholder="Provide a description." name="description" rows="4" id="description-post"
-                    required></textarea>
-                <div class="btn-div">
-                    <button id="create-post-btn" type="submit">Post</button>
-                    <button id="cancel-post-btn">Cancel</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    {{else}}
     <div class="message-card">
         <span class="message-card-title">Message !</span>
         <p id="message-card-content">Create an account to interact with the community.
@@ -61,6 +35,4 @@
             <button id="back-btn-login">← Back</button>
         </div>
     </div>
-    {{/if}}
-
 </div>
