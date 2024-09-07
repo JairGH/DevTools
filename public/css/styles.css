@@ -269,8 +269,9 @@ nav li {
 }
 /* Message */
 .message-card {
-  width: 360px;
-  height: auto;
+  top: 5rem;
+  width: 330px;
+  height: 360px;
   padding: 0 15px;
   position: relative;
   bottom: 5rem;
@@ -349,11 +350,6 @@ nav li {
   margin-top: 8px;
 }
 
-#create-post-btn-div {
-  display: flex;
-  justify-content: space-around;
-}
-
 #back-btn-account,
 #back-btn-login,
 #cancel-post-btn {
@@ -387,12 +383,13 @@ nav li {
   opacity: 0.8;
 }
 #create-post-btn-div {
+  display: flex;
   width: 100%;
+  position: sticky;
+  margin-top: 2rem;
 }
-.create-post-btn {
-  visibility: visible;
+.create-new-post {
   position: absolute;
-  top: 7rem;
   left: 50%;
   transform: translateX(-50%);
   appearance: none;
@@ -414,21 +411,25 @@ nav li {
   user-select: none;
   touch-action: manipulation;
 }
-.create-post-btn:disabled {
+.create-new-post:disabled {
   pointer-events: none;
 }
-.create-post-btn:hover {
+.create-new-post:hover {
   color: #fff;
   background-color: var(--green-color);
   border: 0.125em solid var(--green-color);
 }
 #post-form {
   display: flex;
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 450px;
-  height: auto;
+  height: 535px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 10px 10px #323232;
@@ -779,7 +780,7 @@ textarea {
     cursor: pointer;
     outline: inherit;
   }
-  .create-post-btn {
+  .create-new-post {
     top: 90%;
     position: fixed;
     width: 50%;

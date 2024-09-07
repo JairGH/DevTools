@@ -1,7 +1,7 @@
 <div class="community-container">
 
-    <div id="create-post-btn-div">
-        <button class="create-post-btn" id="create-btn">
+    <div id="create-post-btn-div" style="visibility: visible;">
+        <button class="create-new-post" id="create-btn">
             Create new post
         </button>
     </div>
@@ -17,16 +17,17 @@
                 <input type="text" id="input-file" style="display:none;" name="image" value="">
             </div>
             <div class="input-section">
-                <input placeholder="Title" type="text" name="title" id="title-post" required>
-                <textarea placeholder="Provide a description." name="description" rows="4" id="description-post"
-                    required></textarea>
+                <input placeholder="Title" type="text" name="title" id="title-post">
+                <textarea placeholder="Provide a description." name="description" rows="4"
+                    id="description-post"></textarea>
                 <div class="btn-div">
-                    <button id="create-post-btn" type="submit">Post</button>
-                    <button id="cancel-post-btn">Cancel</button>
+                    <button type="button" id="create-post-btn">Post</button> <!-- Set type="button" -->
+                    <button type="button" id="cancel-post-btn">Cancel</button> <!-- Set type="button" -->
                 </div>
             </div>
         </form>
     </div>
+
 
     {{!-- <div id="user-card-div">
         {{#each posts as |post|}}

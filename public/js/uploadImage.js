@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       uploadPreset: uploadPreset,
       multiple: false,
     },
+    // Getting the user image and replace the skeleton.
     (error, result) => {
       if (!error && result && result.event === "success") {
         console.log("Done! Here is the image info: ", result.info);
@@ -37,15 +38,18 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const reverseImageStatus = () => {
-    imageSkeleton.style.display = "none";
-    imageTag.style.display = "block";
+    imageSkeleton.style.display = "block";
+    imageTag.style.display = "none";
   };
+
   if (createPostBtn) {
     createPostBtn.addEventListener("click", () => {
       createPostForm.style.visibility = "visible";
       showSkeleton();
       createPostBtn.style.visibility = "hidden";
+
       let showFiles = document.getElementById("upload_widget");
+
       showFiles.addEventListener(
         "click",
         () => {
@@ -56,4 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     });
   }
+
+  // Prevent default form submission on Post button click
+  let postButton = document.getElementById("create-post-btn");
+  postButton.addEventListener("click", (e) => {
+    e.preventDefault();
+  });
 });
