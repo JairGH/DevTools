@@ -30,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "skeleton-placeholder"
   )[0];
   let imageTag = document.getElementById("user-photo");
-  // let title = document.getElementById("title-post");
-  // let description = document.getElementById("description-post");
   let createPostForm = document.getElementById("post-form");
 
   const showSkeleton = () => {
@@ -45,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   document.getElementById("create-post-btn").addEventListener("click", (e) => {
-    console.log("hey");
     if (required()) {
       e.target.setAttribute("type", "submit");
     }

@@ -385,7 +385,7 @@ nav li {
 #create-post-btn-div {
   display: flex;
   width: 100%;
-  position: sticky;
+  /* position: sticky; */
   margin-top: 2rem;
 }
 .create-new-post {
@@ -565,18 +565,19 @@ textarea {
 }
 /* Card for users post */
 #user-card-div {
-  margin-top: 3rem;
+  margin-top: 10rem;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
 .user-card {
   display: grid;
   grid-template-columns: 3fr 2fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
-  max-width: 1300px;
+  max-width: 90%;
+  width: 1300px;
   height: 310px;
   padding: 1rem;
   background-color: #fff;
@@ -584,7 +585,7 @@ textarea {
   box-shadow: 10px 10px #323232;
   border: 3px solid #323232;
   margin-bottom: 2.5rem;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .img-grid {
