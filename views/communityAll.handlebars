@@ -7,7 +7,7 @@
     </div>
 
     <div id="post-form" style="visibility: hidden;">
-        <form action="/community/post" method="post">
+        <form id="postForm" action="/community/post" method="post">
             <div class="img-container">
                 <div class="skeleton-placeholder"></div>
                 <img src="" id="user-photo" style="display: none;">
@@ -21,8 +21,8 @@
                 <textarea placeholder="Provide a description." name="description" rows="4"
                     id="description-post"></textarea>
                 <div class="btn-div">
-                    <button type="button" id="create-post-btn">Post</button> <!-- Set type="button" -->
-                    <button type="button" id="cancel-post-btn">Cancel</button> <!-- Set type="button" -->
+                    <button type="button" id="create-post-btn">Post</button>
+                    <button type="button" id="cancel-post-btn">Cancel</button>
                 </div>
             </div>
         </form>

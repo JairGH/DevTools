@@ -100,7 +100,7 @@ router.post("/community/post", authMiddleware, async (req, res) => {
 
     console.log("Post created and associated with user successfully.");
 
-    res.redirect("/community/all");
+    res.redirect("/community");
   } catch (error) {
     console.error("Error creating post for user:", error);
     res.status(500).send("Server error");

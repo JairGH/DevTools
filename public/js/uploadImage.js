@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const cloudName = "di3nk6hyq";
   const uploadPreset = "l3a5wnco";
 
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       uploadPreset: uploadPreset,
       multiple: false,
     },
-    // Getting the user image and replace the skeleton.
+
     (error, result) => {
       if (!error && result && result.event === "success") {
         console.log("Done! Here is the image info: ", result.info);
@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     "skeleton-placeholder"
   )[0];
   let imageTag = document.getElementById("user-photo");
+  // let title = document.getElementById("title-post");
+  // let description = document.getElementById("description-post");
   let createPostForm = document.getElementById("post-form");
 
   const showSkeleton = () => {
@@ -41,6 +43,25 @@ document.addEventListener("DOMContentLoaded", function () {
     imageSkeleton.style.display = "block";
     imageTag.style.display = "none";
   };
+
+  document.getElementById("create-post-btn").addEventListener("click", (e) => {
+    console.log("hey");
+    if (required()) {
+      e.target.setAttribute("type", "submit");
+    }
+  });
+
+  function required() {
+    var title = document.getElementById("title-post").value.length;
+    var description = document.getElementById("description-post").value.length;
+
+    if (title === 0 || description === 0) {
+      alert("Please input a value");
+      return false;
+    } else if (title >= 4 && description >= 4) {
+      return true;
+    }
+  }
 
   if (createPostBtn) {
     createPostBtn.addEventListener("click", () => {
@@ -61,9 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Prevent default form submission on Post button click
-  let postButton = document.getElementById("create-post-btn");
-  postButton.addEventListener("click", (e) => {
-    e.preventDefault();
+  let cancelButton = document.getElementById("cancel-post-btn");
+  cancelButton.addEventListener("click", () => {
+    createPostForm.style.visibility = "hidden";
+    createPostBtn.style.visibility = "visible";
   });
 });
