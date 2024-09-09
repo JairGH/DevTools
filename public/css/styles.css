@@ -435,6 +435,7 @@ nav li {
   box-shadow: 10px 10px #323232;
   border: 3px solid #323232;
   padding: 2rem;
+  z-index: 99;
 }
 
 .skeleton-placeholder {
@@ -565,10 +566,10 @@ textarea {
 }
 /* Card for users post */
 #user-card-div {
-  margin-top: 10rem;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 10rem 0 5rem 0;
 }
 
 .user-card {
@@ -764,6 +765,7 @@ textarea {
     height: auto;
     flex-direction: column;
     margin: 16px;
+    width: 90%;
   }
   .user-card > img {
     margin: 0 auto;
@@ -781,14 +783,13 @@ textarea {
     cursor: pointer;
     outline: inherit;
   }
-  .create-new-post {
-    top: 90%;
-    position: fixed;
+  /* .create-new-post {
+    position: sticky;
     width: 50%;
-  }
+  } */
   #post-form {
     height: 500px;
-    width: 290px;
+    width: 285px;
     max-width: 300px;
   }
 
@@ -802,6 +803,9 @@ textarea {
   #create-post-btn,
   #cancel-post-btn {
     width: 130px;
+  }
+  #create-post-btn-div {
+    width: 0 !important;
   }
 }
 @media (min-width: 2000px) {

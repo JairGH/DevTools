@@ -99,9 +99,11 @@ if (loginBtn) {
 }
 
 // Delete post
-let deletePostBtn = document.getElementById("delete-btn");
-if (deletePostBtn) {
+let deletePostBtns = document.querySelectorAll("#delete-btn");
+
+deletePostBtns.forEach((deletePostBtn) => {
   deletePostBtn.addEventListener("click", () => {
+    console.log("hey");
     const postId = deletePostBtn.getAttribute("data-id");
 
     fetch(`/community/all/${postId}`, {
@@ -113,9 +115,9 @@ if (deletePostBtn) {
       .then((response) => {
         if (response.ok) {
           alert("Post deleted successfully.");
-          deletePostBtn.parentElement.remove();
+          deletePostBtn.closest(".user-card").remove();
         } else {
-          alert("Failed to delete the post.");
+          alert("This post does not belong to you.");
         }
       })
       .catch((error) => {
@@ -123,4 +125,4 @@ if (deletePostBtn) {
         alert("An error occurred.");
       });
   });
-}
+});

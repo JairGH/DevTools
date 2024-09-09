@@ -4,7 +4,6 @@ const router = express.Router();
 const User = require("../models/user");
 const UserPost = require("../models/userPost");
 const jwt = require("jsonwebtoken");
-const monitorsData = require("../public/data/monitors");
 const authMiddleware = require("../middleware/authMiddleware");
 
 router.get("/community", authMiddleware, async (req, res) => {
@@ -121,18 +120,18 @@ router.delete("/community/all/:id", authMiddleware, async (req, res) => {
     const postExists = findUser.posts.some(
       (post) => post._id.toString() === postId
     );
+
     if (!postExists) {
       return res
         .status(403)
         .send("Post does not belong to the user or does not exist.");
     }
 
-    const findPost = await UserPost.findById(postId);
-    if (!findPost) {
+    const deletedPost = await UserPost.findByIdAndDelete(postId);
+
+    if (!deletedPost) {
       return res.status(404).send("Post not found.");
     }
-
-    await UserPost.findByIdAndDelete(postId);
 
     res.status(200).send("Post deleted successfully.");
   } catch (error) {
