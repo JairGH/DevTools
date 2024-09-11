@@ -385,7 +385,7 @@ nav li {
 #create-post-btn-div {
   display: flex;
   width: 100%;
-  /* position: sticky; */
+  position: absolute;
   margin-top: 2rem;
 }
 .create-new-post {
@@ -569,7 +569,7 @@ textarea {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 10rem 0 5rem 0;
+  margin: 7rem 0 5rem 0;
 }
 
 .user-card {
@@ -733,7 +733,6 @@ textarea {
   }
   .message-card {
     max-width: 280px;
-    height: auto;
     text-align: center;
     display: flex;
     align-items: center;

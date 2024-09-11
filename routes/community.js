@@ -11,7 +11,8 @@ router.get("/community", authMiddleware, async (req, res) => {
 
   if (user) {
     try {
-      const posts = await UserPost.find().lean();
+      const allPosts = await UserPost.find().lean();
+      const posts = allPosts.reverse();
       const findUser = await User.findOne({ email: user.email }).populate(
         "posts"
       );
@@ -121,11 +122,9 @@ router.delete("/community/all/:id", authMiddleware, async (req, res) => {
     if (!findUser) {
       return res.status(404).send("User not found.");
     }
-
     const postExists = findUser.posts.some(
       (post) => post._id.toString() === postId
     );
-
     if (!postExists) {
       return res
         .status(403)
@@ -137,12 +136,43 @@ router.delete("/community/all/:id", authMiddleware, async (req, res) => {
     if (!deletedPost) {
       return res.status(404).send("Post not found.");
     }
-
-    res.status(200).send("Post deleted successfully.");
+    res.sendStatus(200);
   } catch (error) {
     console.error(error);
     res.status(500).send("Server error");
   }
 });
+
+// router.put("/community/all/:id", authMiddleware, async (req, res) => {
+//   const { user } = req;
+//   const postId = req.params.id;
+
+//   try {
+//     const findUser = await User.findOne({ email: user.email });
+
+//     if (!findUser) {
+//       return res.status(404).send("User not found.");
+//     }
+
+//     const post = findUser.posts.find((post) => post._id.toString() === postId);
+
+//     if (!post) {
+//       return res
+//         .status(403)
+//         .send("Post does not belong to the user or does not exist.");
+//     }
+
+//     post.title = req.body.title || post.title;
+//     post.description = req.body.description || post.description;
+//     post.image = req.body.image || post.image;
+
+//     await findUser.save();
+
+//     res.status(200).json(post);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("Server error");
+//   }
+// });
 
 module.exports = router;

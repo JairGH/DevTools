@@ -114,8 +114,8 @@ deletePostBtns.forEach((deletePostBtn) => {
     })
       .then((response) => {
         if (response.ok) {
-          alert("Post deleted successfully.");
           deletePostBtn.closest(".user-card").remove();
+          window.location.reload();
         } else {
           alert("This post does not belong to you.");
         }
@@ -124,5 +124,14 @@ deletePostBtns.forEach((deletePostBtn) => {
         console.error("Error:", error);
         alert("An error occurred.");
       });
+  });
+});
+
+// Edit post
+let editPostBtns = document.querySelectorAll("#edit-btn");
+
+editPostBtns.forEach((editPostBtn) => {
+  editPostBtn.addEventListener("click", () => {
+    console.log("hey");
   });
 });
