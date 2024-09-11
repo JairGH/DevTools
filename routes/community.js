@@ -11,8 +11,13 @@ router.get("/community", authMiddleware, async (req, res) => {
 
   if (user) {
     try {
-      const posts = await UserPost.find();
-      return res.render("communityAll", { posts });
+      const posts = await UserPost.find().lean();
+      const findUser = await User.findOne({ email: user.email }).populate(
+        "posts"
+      );
+      const userPosts = findUser?.posts || [];
+
+      return res.render("communityAll", { posts, userPosts, user });
     } catch (error) {
       console.error(error);
       return res.status(500).send("Server error");

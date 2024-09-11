@@ -18,6 +18,11 @@ const hbs = create({
   runtimeOptions: {
     allowProtoPropertiesByDefault: true,
   },
+  helpers: {
+    isInArray: function (array, value) {
+      return array.some((item) => item._id.equals(value));
+    },
+  },
 });
 
 app.engine("handlebars", hbs.engine);
