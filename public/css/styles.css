@@ -668,7 +668,12 @@ textarea {
   border-left: 2px solid rgb(235, 235, 235);
   border-right: 2px solid rgb(235, 235, 235);
 }
-
+#edit-post {
+  flex-direction: column;
+}
+.hide-on-edit {
+  display: none;
+}
 /*  */
 /* ! */
 @media (max-width: 430px) {

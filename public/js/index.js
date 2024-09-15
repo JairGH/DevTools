@@ -100,38 +100,50 @@ if (loginBtn) {
 
 // Delete post
 let deletePostBtns = document.querySelectorAll("#delete-btn");
+if (deletePostBtns) {
+  deletePostBtns.forEach((deletePostBtn) => {
+    deletePostBtn.addEventListener("click", () => {
+      console.log("hey");
+      const postId = deletePostBtn.getAttribute("data-id");
 
-deletePostBtns.forEach((deletePostBtn) => {
-  deletePostBtn.addEventListener("click", () => {
-    console.log("hey");
-    const postId = deletePostBtn.getAttribute("data-id");
-
-    fetch(`/community/all/${postId}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          deletePostBtn.closest(".user-card").remove();
-          window.location.reload();
-        } else {
-          alert("This post does not belong to you.");
-        }
+      fetch(`/community/all/${postId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("An error occurred.");
-      });
+        .then((response) => {
+          if (response.ok) {
+            deletePostBtn.closest(".user-card").remove();
+            window.location.reload();
+          } else {
+            alert("This post does not belong to you.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("An error occurred.");
+        });
+    });
   });
-});
+}
 
 // Edit post
 let editPostBtns = document.querySelectorAll("#edit-btn");
+if (editPostBtns) {
+  editPostBtns.forEach((editPostBtn) => {
+    editPostBtn.addEventListener("click", (event) => {
+      console.log("hey");
+      let userCard = event.target.closest(".user-card");
+      let editForm = userCard.querySelector("#edit-post");
+      let hideOnEdit = userCard.querySelectorAll(".hide-on-edit");
 
-editPostBtns.forEach((editPostBtn) => {
-  editPostBtn.addEventListener("click", () => {
-    console.log("hey");
+      if (editForm) {
+        editForm.style.display = "flex";
+        hideOnEdit.forEach((element) => {
+          element.style.display = "none";
+        });
+      }
+    });
   });
-});
+}
