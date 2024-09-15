@@ -137,11 +137,46 @@ if (editPostBtns) {
       let userCard = event.target.closest(".user-card");
       let editForm = userCard.querySelector("#edit-post");
       let hideOnEdit = userCard.querySelectorAll(".hide-on-edit");
+      let cancelEditBtn = userCard.querySelector("#cancel-edit-btn");
+      let saveEditBtn = userCard.querySelector("#save-edit-btn");
+      let deleteBtn = userCard.querySelector("#delete-btn");
+
+      editPostBtn.style.display = "none";
+      deleteBtn.style.display = "none";
 
       if (editForm) {
         editForm.style.display = "flex";
+        cancelEditBtn.style.display = "flex";
+        saveEditBtn.style.display = "flex";
         hideOnEdit.forEach((element) => {
           element.style.display = "none";
+        });
+      }
+    });
+  });
+}
+
+let cancelEditBtns = document.querySelectorAll("#cancel-edit-btn");
+if (cancelEditBtns) {
+  cancelEditBtns.forEach((cancelEditBtn) => {
+    cancelEditBtn.addEventListener("click", (event) => {
+      console.log("hey1");
+      let userCard = event.target.closest(".user-card");
+      let editForm = userCard.querySelector("#edit-post");
+      let hideOnEdit = userCard.querySelectorAll(".hide-on-edit");
+      let editBtn = userCard.querySelector("#edit-btn");
+      let deleteBtn = userCard.querySelector("#delete-btn");
+      let saveEditBtn = userCard.querySelector("#save-edit-btn");
+
+      cancelEditBtn.style.display = "none";
+      saveEditBtn.style.display = "none";
+      editBtn.style.display = "flex";
+      deleteBtn.style.display = "flex";
+
+      if (editForm) {
+        editForm.style.display = "none";
+        hideOnEdit.forEach((element) => {
+          element.style.display = "block";
         });
       }
     });

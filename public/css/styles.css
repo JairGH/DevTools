@@ -633,7 +633,11 @@ textarea {
 
 /* ? */
 #edit-btn,
-#delete-btn {
+#delete-btn,
+#cancel-edit-btn,
+#save-edit-btn {
+  justify-content: center;
+  align-items: center;
   width: 45px;
   height: 45px;
   border: none;
@@ -652,22 +656,25 @@ textarea {
   background-color: var(--blue-color);
   transition-duration: 0.3s;
 }
-#delete-btn:hover {
+#delete-btn:hover,
+#cancel-edit-btn:hover {
   background-color: rgb(213, 41, 41);
   transition-duration: 0.3s;
 }
+#save-edit-btn:hover {
+  background-color: var(--green-color);
+  transition-duration: 0.3s;
+}
 
-#edit-btn:hover {
+#edit-btn:hover,
+#delete-btn:hover,
+#save-edit-btn:hover,
+#cancel-edit-btn:hover {
   border-bottom: 2px solid rgb(235, 235, 235);
   border-left: 2px solid rgb(235, 235, 235);
   border-right: 2px solid rgb(235, 235, 235);
 }
 
-#delete-btn:hover {
-  border-bottom: 2px solid rgb(235, 235, 235);
-  border-left: 2px solid rgb(235, 235, 235);
-  border-right: 2px solid rgb(235, 235, 235);
-}
 #edit-post {
   flex-direction: column;
 }
