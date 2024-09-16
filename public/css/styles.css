@@ -631,7 +631,6 @@ textarea {
   padding-right: 10px;
 }
 
-/* ? */
 #edit-btn,
 #delete-btn,
 #cancel-edit-btn,
@@ -681,7 +680,7 @@ textarea {
 .hide-on-edit {
   display: none;
 }
-/*  */
+
 /* ! */
 @media (max-width: 430px) {
   #sidebar {

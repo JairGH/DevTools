@@ -142,5 +142,40 @@ router.delete("/community/all/:id", authMiddleware, async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+router.put("/community/all/:id", authMiddleware, async (req, res) => {
+  const { user } = req;
+  const postId = req.params.id;
+
+  try {
+    const findUser = await User.findOne({ email: user.email });
+
+    if (!findUser) {
+      return res.status(404).send("User not found.");
+    }
+    const postExists = findUser.posts.some(
+      (post) => post._id.toString() === postId
+    );
+    if (!postExists) {
+      return res
+        .status(403)
+        .send("Post does not belong to the user or does not exist.");
+    }
+    const updatedInfo = req.body;
+    console.log(updatedInfo);
+
+    const updatePost = await UserPost.findOneAndUpdate(
+      { _id: postId }, // Use the post ID to find the post
+      { $set: updatedInfo } // Updated information from req.body
+    );
+    if (!updatePost) {
+      return res.status(404).send("Post not found.");
+    }
+
+    res.sendStatus(200);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error");
+  }
+});
 
 module.exports = router;

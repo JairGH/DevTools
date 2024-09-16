@@ -152,6 +152,30 @@ if (editPostBtns) {
           element.style.display = "none";
         });
       }
+      saveEditBtn.addEventListener("click", () => {
+        const postId = saveEditBtn.getAttribute("data-id");
+        const title = userCard.querySelector("#title-post").value;
+        const description = userCard.querySelector("#description-post").value;
+
+        fetch(`/community/all/${postId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title, description }), // Pass the updated data
+        })
+          .then((response) => {
+            if (response.ok) {
+              window.location.reload();
+            } else {
+              alert("This post does not belong to you.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred.");
+          });
+      });
     });
   });
 }
