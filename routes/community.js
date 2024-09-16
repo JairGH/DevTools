@@ -142,6 +142,7 @@ router.delete("/community/all/:id", authMiddleware, async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+
 router.put("/community/all/:id", authMiddleware, async (req, res) => {
   const { user } = req;
   const postId = req.params.id;
@@ -164,8 +165,8 @@ router.put("/community/all/:id", authMiddleware, async (req, res) => {
     console.log(updatedInfo);
 
     const updatePost = await UserPost.findOneAndUpdate(
-      { _id: postId }, // Use the post ID to find the post
-      { $set: updatedInfo } // Updated information from req.body
+      { _id: postId },
+      { $set: updatedInfo }
     );
     if (!updatePost) {
       return res.status(404).send("Post not found.");
