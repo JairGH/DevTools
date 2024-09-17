@@ -52,6 +52,7 @@ DevTools is a full-stack application crafted for developers to explore and disco
 
 ## Getting Started
 
+<img width="1709" alt="Screenshot 2024-09-16 at 4 37 56 PM" src="https://github.com/user-attachments/assets/e2bb32bd-36d1-47ca-9531-3d6a1f5d783e">
 
 
 ### Installation
