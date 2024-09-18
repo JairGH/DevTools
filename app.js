@@ -10,7 +10,7 @@ const productRoutes = require("./routes/products");
 const communityRoutes = require("./routes/community");
 const checkoutRoutes = require("./routes/checkout");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 const hbs = create({
   defaultLayout: "main",
@@ -43,12 +43,8 @@ const dbUri =
 mongoose
   .connect(dbUri)
   .then((results) =>
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server is running on http://localhost:${PORT}`);
     })
   )
   .catch((err) => console.log(err));
-
-// app.listen(PORT, () => {
-//   console.log(`Server is running on http://localhost:${PORT}`);
-// });
