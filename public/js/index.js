@@ -20,11 +20,11 @@ if (sidebar) {
 
 // Main page div redirect
 const allLinks = {
-  monitorLink: "http://localhost:3000/monitors",
-  keyboardLink: "http://localhost:3000/keyboards",
-  mouseLink: "http://localhost:3000/mouse",
-  headphonesLink: "http://localhost:3000/headphones",
-  communityLink: "http://localhost:3000/community",
+  monitorLink: "http://localhost:8080/monitors",
+  keyboardLink: "http://localhost:8080/keyboards",
+  mouseLink: "http://localhost:8080/mouse",
+  headphonesLink: "http://localhost:8080/headphones",
+  communityLink: "http://localhost:8080/community",
 };
 let monitorDiv = document.getElementById("monitorClick");
 if (monitorDiv) {
@@ -162,7 +162,7 @@ if (editPostBtns) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ title, description }), // Pass the updated data
+          body: JSON.stringify({ title, description }), 
         })
           .then((response) => {
             if (response.ok) {
