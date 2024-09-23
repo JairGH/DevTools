@@ -81,7 +81,7 @@ npm run start
 
 ### Client-side
 
-Navigate to `http://localhost:3000` to access the frontend of the application.
+Navigate to `http://localhost:8080` to access the frontend of the application.
 
 ---
 
