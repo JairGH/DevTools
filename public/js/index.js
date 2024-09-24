@@ -20,11 +20,11 @@ if (sidebar) {
 
 // Main page div redirect
 const allLinks = {
-  monitorLink: "https://devtools-production.up.railway.app/monitors",
-  keyboardLink: "https://devtools-production.up.railway.app/keyboards",
-  mouseLink: "https://devtools-production.up.railway.app/mouse",
-  headphonesLink: "https://devtools-production.up.railway.app/headphones",
-  communityLink: "https://devtools-production.up.railway.app/community",
+  monitorLink: `http://localhost:8080/monitors`,
+  keyboardLink: `http://localhost:8080/keyboards`,
+  mouseLink: `http://localhost:8080/mouse`,
+  headphonesLink: `http://localhost:8080/headphones`,
+  communityLink: `http://localhost:8080/community`,
 };
 let monitorDiv = document.getElementById("monitorClick");
 if (monitorDiv) {
