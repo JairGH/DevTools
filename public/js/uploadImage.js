@@ -9,21 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
       uploadPreset: uploadPreset,
       multiple: false,
     },
-
     (error, result) => {
       if (!error && result && result.event === "success") {
         console.log("Done! Here is the image info: ", result.info);
+  
+        const optimizedImageUrl = result.info.secure_url
+          .replace("/upload/", "/upload/q_auto,f_auto/");
+  
         document
           .getElementById("user-photo")
-          .setAttribute("src", result.info.secure_url);
+          .setAttribute("src", optimizedImageUrl);
         document.getElementById("user-photo").style.display = "block";
         document.querySelector(".skeleton-placeholder").style.display = "none";
-        imgUrl = result.info.secure_url;
+  
+        imgUrl = optimizedImageUrl;
         document.getElementById("input-file").value = imgUrl;
         return imgUrl;
       }
     }
   );
+  
 
   let createPostBtn = document.getElementById("create-btn");
   let imageSkeleton = document.getElementsByClassName(
