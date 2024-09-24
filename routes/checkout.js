@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const stripe = require("stripe")(process.env.Token);
+const Stripe = require('stripe');
+const stripe = Stripe(process.env.STRIPE_KEY);
 const allProducts = require("../public/data/allProducts");
+const PORT = process.env.PORT || 8080;
 
 router.get("/create-checkout-session", (req, res) => {
   res.render("checkout");
@@ -26,8 +28,8 @@ router.post("/create-checkout-session/:id", async (req, res) => {
       },
     ],
     mode: "payment",
-    success_url: `http://localhost:8080/success`,
-    cancel_url: `http://localhost:8080/cancel`,
+    success_url: `${PORT}/success`,
+    cancel_url: `${PORT}/cancel`,
   });
 
   res.redirect(303, session.url);
