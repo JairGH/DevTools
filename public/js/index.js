@@ -1,3 +1,5 @@
+const PORT = process.env.PORT || 8080;
+
 // Toggle side menu for mobile users
 let sidebar = document.getElementById("sidebar");
 if (sidebar) {
@@ -20,11 +22,11 @@ if (sidebar) {
 
 // Main page div redirect
 const allLinks = {
-  monitorLink: "http://localhost:8080/monitors",
-  keyboardLink: "http://localhost:8080/keyboards",
-  mouseLink: "http://localhost:8080/mouse",
-  headphonesLink: "http://localhost:8080/headphones",
-  communityLink: "http://localhost:8080/community",
+  monitorLink: `${PORT}/monitors`,
+  keyboardLink: `${PORT}/keyboards`,
+  mouseLink: `${PORT}/mouse`,
+  headphonesLink: `${PORT}/headphones`,
+  communityLink: `${PORT}/community`,
 };
 let monitorDiv = document.getElementById("monitorClick");
 if (monitorDiv) {
