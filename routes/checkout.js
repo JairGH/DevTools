@@ -28,8 +28,8 @@ router.post("/create-checkout-session/:id", async (req, res) => {
       },
     ],
     mode: "payment",
-    success_url: `${PORT}/success`,
-    cancel_url: `${PORT}/cancel`,
+    success_url: `https://devtools-production.up.railway.app/success`,
+    cancel_url: `https://devtools-production.up.railway.app/cancel`,
   });
 
   res.redirect(303, session.url);
