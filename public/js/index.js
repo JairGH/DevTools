@@ -1,5 +1,3 @@
-const PORT = process.env.PORT || 8080;
-
 // Toggle side menu for mobile users
 let sidebar = document.getElementById("sidebar");
 if (sidebar) {
@@ -22,11 +20,11 @@ if (sidebar) {
 
 // Main page div redirect
 const allLinks = {
-  monitorLink: `${PORT}/monitors`,
-  keyboardLink: `${PORT}/keyboards`,
-  mouseLink: `${PORT}/mouse`,
-  headphonesLink: `${PORT}/headphones`,
-  communityLink: `${PORT}/community`,
+  monitorLink: "https://devtools-production.up.railway.app/monitors",
+  keyboardLink: "https://devtools-production.up.railway.app/keyboards",
+  mouseLink: "https://devtools-production.up.railway.app/mouse",
+  headphonesLink: "https://devtools-production.up.railway.app/headphones",
+  communityLink: "https://devtools-production.up.railway.app/community",
 };
 let monitorDiv = document.getElementById("monitorClick");
 if (monitorDiv) {
